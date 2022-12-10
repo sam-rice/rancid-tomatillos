@@ -1,0 +1,33 @@
+html {
+  height: 100%;
+}
+
+:root {
+  --app-green: #2e930c;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: url("./assets/rt_background.jpg");
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*:focus-visible {
+  outline: 1px solid #ffffff;
+  outline-offset: 2px;
+}
+
+#root {
+  height: 100%;
+}

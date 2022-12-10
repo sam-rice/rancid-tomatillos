@@ -1,0 +1,70 @@
+.back-button-parent {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  background: linear-gradient(0deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0) 100%);
+}
+
+.back-button {
+  height: 30px;
+  margin-left: 4%;
+  margin-bottom: 5px;
+}
+
+.details-parent {
+  display: flex;
+  justify-content: space-around;
+  height: 88%;
+  color: white;
+  z-index: 1;
+  padding: 1% 6%;
+}
+
+.poster {
+  height: min(310px, 38vw);
+}
+
+.text-container {
+  width: min(350px, 35%);
+}
+
+.title {
+  margin: 0px 0px 7px;
+}
+
+.genres {
+  font-size: .6rem;
+  margin-bottom: 30px;
+}
+
+.overview {
+  font-size: .8rem;
+  margin-bottom: 30px;
+}
+
+td {
+  font-size: .8rem;
+}
+
+.td-key {
+  padding-left: 25px;
+}
+
+.rating-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rating {
+  font-size: .7rem;
+}
+
+.rating-num {
+  font-size: 1.8rem;
+  margin: 0px;
+}
+
+.detail-star {
+  max-height: 20px;
+  margin-left: 5px;
+}
