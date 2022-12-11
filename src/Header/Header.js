@@ -35,7 +35,7 @@ function Header({ updateQuery }) {
     `material-symbols-outlined icon-transition`
 
   const searchBar =
-    <div className="input-container">
+    <div data-cy="input-container" className="input-container">
       <i
         className={iconClassList}
         onClick={handleIconClick}

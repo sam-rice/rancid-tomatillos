@@ -7,9 +7,9 @@ import backButton from "../assets/back-button.png"
 import star from "../assets/star.png"
 
 function DetailView({ id }) {
-  const [movie, setMovie] = useState({})
-  const [videoURL, setVideoURL] = useState("")
-  const [error, setError] = useState("")
+  const [ movie, setMovie ] = useState({})
+  const [ videoURL, setVideoURL ] = useState("")
+  const [ error, setError ] = useState("")
 
   useEffect(() => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
@@ -22,9 +22,9 @@ function DetailView({ id }) {
       })
       .then(({ movie }) => {
         const releaseDateObject = new Date(Date.parse(movie.release_date))
-        const releaseDate = `${releaseDateObject.toLocaleString("en-US", { month: "long" })} ${releaseDateObject.getDate()}, ${releaseDateObject.getFullYear()}`
+        const releaseDate = `${releaseDateObject.toLocaleString("en-US", { month: "long" })} ${releaseDateObject.getDate() + 1}, ${releaseDateObject.getFullYear()}`
         const releaseYear = releaseDateObject.getFullYear()
-        const genres = movie.genres.join("  |  ").toUpperCase()
+        const genres = movie.genres.join(" | ").toUpperCase()
 
         setMovie({
           avgRating: movie.average_rating,
@@ -64,12 +64,12 @@ function DetailView({ id }) {
 
   const budgetRow = <tr>
     <td>budget:</td>
-    <td data-cy="runtime" className="td-key">{movie.budget}</td>
+    <td data-cy="budget" className="td-key">{movie.budget}</td>
   </tr>
 
   const revenueRow = <tr>
     <td>box office:</td>
-    <td data-cy="runtime" className="td-key">{movie.revenue}</td>
+    <td data-cy="revenue" className="td-key">{movie.revenue}</td>
   </tr>
 
   // const videoElement = null
@@ -85,6 +85,7 @@ function DetailView({ id }) {
           to="/"
           role="button"
           aria-label="return to home page"
+          data-cy="back-button"
         >
           <img
             src={backButton}
@@ -115,7 +116,7 @@ function DetailView({ id }) {
               </tr>
               <tr>
                 <td>release date:</td>
-                <td data-cy="runtime" className="td-key">{movie.releaseDate}</td>
+                <td data-cy="release-date" className="td-key">{movie.releaseDate}</td>
               </tr>
               {movie.budget != 0 && budgetRow}
               {movie.revenue != 0 && revenueRow}

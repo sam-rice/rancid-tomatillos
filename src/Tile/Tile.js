@@ -13,9 +13,10 @@ function Tile({ title, year, img, rating, id }) {
     }
   }
 
-  const overlay = 
-    <div 
+  const overlay =
+    <div
       className="overlay"
+      data-cy="overlay"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -23,34 +24,34 @@ function Tile({ title, year, img, rating, id }) {
       <p className="overlay-text">{`(${year.slice(0, 4)})`}</p>
     </div>
 
-  const imageClassList = hovering ? 
-    `hover-animation tile-img` : 
+  const imageClassList = hovering ?
+    `hover-animation tile-img` :
     `tile-img`
 
   return (
-    <li 
+    <li
       data-cy={id}
       tabIndex={2}
       onKeyDown={e => handleKeyDown(e)}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
-      >
-        <Link to={`/${id}`}>
-          <div className="img-container">
-            <img 
-              className={imageClassList}
-              src={img} 
-              alt={title} 
-              onMouseEnter={() => setHover(true)}
-              onMouseLeave={() => setHover(false)}
-            />
-            {hovering && overlay}
-          </div>
-        </Link>
-        <p className="tile-rating">{rating.toFixed(1)} 
-          <img className="star" src={star}/>
-        </p>
-      </li>
+    >
+      <Link to={`/${id}`}>
+        <div data-cy="img-container" className="img-container">
+          <img
+            className={imageClassList}
+            src={img}
+            alt={title}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
+          />
+          {hovering && overlay}
+        </div>
+      </Link>
+      <p className="tile-rating">{rating.toFixed(1)}
+        <img className="star" src={star} />
+      </p>
+    </li>
   )
 }
 

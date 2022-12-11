@@ -22,7 +22,7 @@ function App() {
       })
       .then(({ movies }) => setMovies(movies))
       .catch(err => setError(err))
-  })
+  }, [])
 
   const updateQuery = input => {
     setQuery(input)
