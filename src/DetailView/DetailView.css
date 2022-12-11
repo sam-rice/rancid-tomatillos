@@ -2,16 +2,43 @@
   animation: fadeIn 1s;
 }
 
-.back-button-parent {
+.control-bar {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0);
   background: linear-gradient(0deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0) 100%);
+  padding-bottom: max(15px, 2vw)
 }
 
 .back-button {
+  margin-left: 10%;
+}
+
+.back-icon {
   height: 30px;
-  margin-left: 4%;
-  margin-bottom: 5px;
+}
+
+.rating-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10%;
+}
+
+.rating-label {
+  font-size: max(1vw, .5rem);
+  margin: 0px;
+}
+
+.rating-num {
+  font-size: max(3vw, .8rem);
+  margin: 0px;
+}
+
+.detail-star {
+  height: max(2vw, 10px);
+  margin-left: 5px;
 }
 
 .details-parent {
@@ -26,19 +53,21 @@
 
 .details-upper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-bottom: 40px;
 }
 
 .poster {
-  height: min(310px, 38vw);
+  width: min(210px, 28vw);
+  height: fit-content;
 }
 
 .text-container {
-  width: min(350px, 35%);
+  width: 40%;
 }
 
 .title {
+  font-size: clamp(1rem, 1.5rem, 4vw);
   margin: 0px 0px 7px;
 }
 
@@ -48,36 +77,16 @@
 }
 
 .overview {
-  font-size: .8rem;
+  font-size: .6rem;
   margin-bottom: 30px;
 }
 
 td {
-  font-size: .8rem;
+  font-size: .6rem;
 }
 
 .td-key {
   padding-left: 25px;
-}
-
-.rating-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.rating {
-  font-size: .7rem;
-}
-
-.rating-num {
-  font-size: 1.8rem;
-  margin: 0px;
-}
-
-.detail-star {
-  max-height: 20px;
-  margin-left: 5px;
 }
 
 .video-parent {
@@ -90,3 +99,38 @@ td {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+@media (max-width: 580px) {
+  .text-container {
+    width: 50%;
+  }
+}
+
+@media (max-width: 475px) {
+  .genres {
+    font-size: .5rem;
+  }
+
+  td {
+    font-size: .6rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .details-upper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poster {
+    width: 70%;
+  }
+
+  .text-container {
+    width: 70%;
+    margin-top: 15px;
+  }
+}
+
+/* 425
+360 */

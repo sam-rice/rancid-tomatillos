@@ -8,9 +8,9 @@ import backButton from "../assets/back-button.png"
 import star from "../assets/star.png"
 
 function DetailView({ id }) {
-  const [ movie, setMovie ] = useState({})
-  const [ videoURL, setVideoURL ] = useState("")
-  const [ error, setError ] = useState("")
+  const [movie, setMovie] = useState({})
+  const [videoURL, setVideoURL] = useState("")
+  const [error, setError] = useState("")
 
   useEffect(() => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
@@ -58,11 +58,11 @@ function DetailView({ id }) {
         }
       })
       .catch(err => setError(err))
-      
-      window.scrollTo(0, 0)
+
+    window.scrollTo(0, 0)
   }, [])
 
-  const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`}  width="75%" />
+  const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} width="75%" />
 
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 
@@ -78,25 +78,35 @@ function DetailView({ id }) {
 
 
   const backdropStyle = {
-    background: `linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.7) 100%), url(${movie.backdropURL})`
+    background: `linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.4) 100%), url(${movie.backdropURL})`
   }
 
   return (
     <>
       {Object.keys(movie).length && <div className="details-grandparent">
-        <div className="back-button-parent">
+        <div className="control-bar">
           <Link
             to="/"
             role="button"
+            className="back-button"
             aria-label="return to home page"
             data-cy="back-button"
           >
             <img
               src={backButton}
-              className="back-button"
+              className="back-icon"
               alt="back button"
             />
           </Link>
+          <div className="rating-container">
+            <p className="rating-label">
+              average rating:
+            </p>
+            <p data-cy="rating" className="rating-num">
+              {Math.round(movie.avgRating)}
+              <img className="detail-star" src={star} />
+            </p>
+          </div>
         </div>
         <section
           className="details-parent"
@@ -127,15 +137,6 @@ function DetailView({ id }) {
                   {movie.revenue != 0 && revenueRow}
                 </tbody>
               </table>
-            </div>
-            <div className="rating-container">
-              <p className="rating">
-                average rating:
-              </p>
-              <p data-cy="rating" className="rating-num">
-                {Math.round(movie.avgRating)}
-                <img className="detail-star" src={star} />
-              </p>
             </div>
           </div>
           <div className="video-parent">
