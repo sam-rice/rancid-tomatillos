@@ -2,16 +2,43 @@
   animation: fadeIn 1s;
 }
 
-.back-button-parent {
+.control-bar {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0);
+  /* background-color: rgba(0, 0, 0, 0); */
   background: linear-gradient(0deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0) 100%);
 }
 
 .back-button {
+  margin-left: 10%;
+}
+
+.back-icon {
   height: 30px;
-  margin-left: 4%;
-  margin-bottom: 5px;
+}
+
+.rating-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10%;
+}
+
+.rating-label {
+  font-size: max(1vw, .5rem);
+  margin: 0px;
+}
+
+.rating-num {
+  font-size: max(3vw, .8rem);
+  margin: 0px;
+}
+
+.detail-star {
+  height: max(2vw, 10px);
+  margin-left: 5px;
 }
 
 .details-parent {
@@ -26,15 +53,8 @@
 
 .details-upper {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.test {
-  display: flex;
   justify-content: space-evenly;
-  width: 80%;
+  margin-bottom: 40px;
 }
 
 .poster {
@@ -42,7 +62,7 @@
 }
 
 .text-container {
-  width: 45%;
+  width: 40%;
 }
 
 .title {
@@ -67,27 +87,6 @@ td {
   padding-left: 25px;
 }
 
-.rating-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.rating {
-  font-size: .7rem;
-  text-align: center;
-}
-
-.rating-num {
-  font-size: 2rem;
-  margin: 0px;
-}
-
-.detail-star {
-  height: 20px;
-  margin-left: 5px;
-}
-
 .video-parent {
   display: flex;
   justify-content: center;
@@ -100,40 +99,19 @@ td {
 }
 
 @media (max-width: 580px) {
-  .details-upper {
-    flex-direction: column;
-    align-items: center
-  }
-
-  .test {
-    width: 100%;
+  .control-bar {
+    padding-bottom: 10px;
   }
 
   .text-container {
-    width: 250px;
+    width: 50%;
   }
 
-  .rating-container {
-    width: 100%;
-    align-items: flex-end;
-  }
-
-  .rating {
-    font-size: .5rem;
-  }
-
-  .rating-num {
-    font-size: 1rem;
-  }
-
-  .detail-star {
-    height: 10px;
-  }
 }
 
 @media (max-width: 475px) {
-  .text-container {
-    width: 200px;
+  h2 {
+    color: red;
   }
 }
 

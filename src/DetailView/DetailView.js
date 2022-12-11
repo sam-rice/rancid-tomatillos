@@ -84,60 +84,59 @@ function DetailView({ id }) {
   return (
     <>
       {Object.keys(movie).length && <div className="details-grandparent">
-        <div className="back-button-parent">
+        <div className="control-bar">
           <Link
             to="/"
             role="button"
+            className="back-button"
             aria-label="return to home page"
             data-cy="back-button"
           >
             <img
               src={backButton}
-              className="back-button"
+              className="back-icon"
               alt="back button"
             />
           </Link>
+          <div className="rating-container">
+            <p className="rating-label">
+              average rating:
+            </p>
+            <p data-cy="rating" className="rating-num">
+              {Math.round(movie.avgRating)}
+              <img className="detail-star" src={star} />
+            </p>
+          </div>
         </div>
         <section
           className="details-parent"
           style={backdropStyle}
         >
           <div className="details-upper">
-            <div className="rating-container">
-              <p className="rating">
-                average rating:
-              </p>
-              <p data-cy="rating" className="rating-num">
-                {Math.round(movie.avgRating)}
-                <img className="detail-star" src={star} />
-              </p>
-            </div>
-            <div className="test">
-              <img
-                data-cy="poster"
-                className="poster"
-                src={movie.posterURL}
-                alt={`Poster for ${movie.title}`}
-              />
-              <div className="text-container">
-                <h2 data-cy="title" className="title">{`${movie.title} (${movie.releaseYear})`}</h2>
-                <p data-cy="genres" className="genres">{movie.genres}</p>
-                <p data-cy="overview" className="overview">{movie.overview}</p>
-                <table>
-                  <tbody>
-                    <tr>
-                      <td>runtime:</td>
-                      <td data-cy="runtime" className="td-key">{movie.runtime} minutes</td>
-                    </tr>
-                    <tr>
-                      <td>release date:</td>
-                      <td data-cy="release-date" className="td-key">{movie.releaseDate}</td>
-                    </tr>
-                    {movie.budget != 0 && budgetRow}
-                    {movie.revenue != 0 && revenueRow}
-                  </tbody>
-                </table>
-              </div>
+            <img
+              data-cy="poster"
+              className="poster"
+              src={movie.posterURL}
+              alt={`Poster for ${movie.title}`}
+            />
+            <div className="text-container">
+              <h2 data-cy="title" className="title">{`${movie.title} (${movie.releaseYear})`}</h2>
+              <p data-cy="genres" className="genres">{movie.genres}</p>
+              <p data-cy="overview" className="overview">{movie.overview}</p>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>runtime:</td>
+                    <td data-cy="runtime" className="td-key">{movie.runtime} minutes</td>
+                  </tr>
+                  <tr>
+                    <td>release date:</td>
+                    <td data-cy="release-date" className="td-key">{movie.releaseDate}</td>
+                  </tr>
+                  {movie.budget != 0 && budgetRow}
+                  {movie.revenue != 0 && revenueRow}
+                </tbody>
+              </table>
             </div>
           </div>
           <div className="video-parent">
