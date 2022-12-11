@@ -8,9 +8,9 @@ import backButton from "../assets/back-button.png"
 import star from "../assets/star.png"
 
 function DetailView({ id }) {
-  const [ movie, setMovie ] = useState({})
-  const [ videoURL, setVideoURL ] = useState("")
-  const [ error, setError ] = useState("")
+  const [movie, setMovie] = useState({})
+  const [videoURL, setVideoURL] = useState("")
+  const [error, setError] = useState("")
 
   useEffect(() => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
@@ -58,11 +58,11 @@ function DetailView({ id }) {
         }
       })
       .catch(err => setError(err))
-      
-      window.scrollTo(0, 0)
+
+    window.scrollTo(0, 0)
   }, [])
 
-  const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`}  width="75%" />
+  const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} width="75%" />
 
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 

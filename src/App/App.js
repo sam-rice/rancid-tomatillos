@@ -7,9 +7,9 @@ import DetailView from "../DetailView/DetailView"
 import Header from "../Header/Header"
 
 function App() {
-  const [ movies, setMovies ] = useState([])
-  const [ query, setQuery ] = useState("")
-  const [ err, setError ] = useState("")
+  const [movies, setMovies] = useState([])
+  const [query, setQuery] = useState("")
+  const [err, setError] = useState("")
 
   useEffect(() => {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
@@ -32,8 +32,8 @@ function App() {
 
   return (
     <>
-      <Header 
-        updateQuery={updateQuery} 
+      <Header
+        updateQuery={updateQuery}
         err={err}
       />
       <main>
@@ -46,8 +46,8 @@ function App() {
         />
         <Route
           exact path="/"
-          render={ () => <AllMoviesView
-            movies={movies} 
+          render={() => <AllMoviesView
+            movies={movies}
             query={query}
           />}
         />

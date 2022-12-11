@@ -35,25 +35,27 @@ function Header({ updateQuery }) {
     `material-symbols-outlined icon-transition`
 
   const searchBar =
-    <div data-cy="input-container" className="input-container">
-      <i
-        className={iconClassList}
-        onClick={handleIconClick}
-        onKeyDown={(e) => handleKeyDown(e)}
-        tabIndex={1}
-        role="button"
-        aria-label="click to search movies by title"
-      >search</i>
-      <input
-        className={inputClassList}
-        type="search"
-        name="search"
-        placeholder="search by title"
-        value={query}
-        tabIndex={1}
-        onChange={(e) => handleChange(e)}
-        ref={searchInput}
-      />
+    <div className="header-right">
+      <div data-cy="input-container" className="input-container">
+        <i
+          className={iconClassList}
+          onClick={handleIconClick}
+          onKeyDown={(e) => handleKeyDown(e)}
+          tabIndex={1}
+          role="button"
+          aria-label="click to search movies by title"
+        >search</i>
+        <input
+          className={inputClassList}
+          type="search"
+          name="search"
+          placeholder="search by title"
+          value={query}
+          tabIndex={1}
+          onChange={(e) => handleChange(e)}
+          ref={searchInput}
+        />
+      </div>
     </div>
 
   return (
@@ -68,9 +70,7 @@ function Header({ updateQuery }) {
           <h1>RANCID <br />TOMATILLOS</h1>
         </Link>
       </div>
-      <div className="header-right">
-        <Route exact path="/" render={() => searchBar} />
-      </div>
+      <Route exact path="/" render={() => searchBar} />
     </header>
   )
 }
