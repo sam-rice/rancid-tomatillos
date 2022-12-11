@@ -22,10 +22,12 @@ function AllMoviesView({ movies, query }) {
   const noMatchesMessage = <p className="no-matches-message">No movies matching your search</p>
 
   return (
-    <ul>
-      {tileComponents}
-      {noMatches && noMatchesMessage}
-    </ul>
+    <>
+      {movies.length && <ul>
+        {tileComponents}
+        {noMatches && noMatchesMessage}
+      </ul>}
+    </>
   )
 }
 

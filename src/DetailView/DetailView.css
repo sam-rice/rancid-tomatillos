@@ -1,3 +1,7 @@
+.details-grandparent {
+  animation: fadeIn 1s;
+}
+
 .back-button-parent {
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
@@ -13,10 +17,17 @@
 .details-parent {
   display: flex;
   justify-content: space-around;
-  height: 88%;
+  flex-direction: column;
+  height: -webkit-fill-available;
+  /* not sure about above */
   color: white;
-  z-index: 1;
   padding: 1% 6%;
+}
+
+.details-upper {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
 }
 
 .poster {
@@ -67,4 +78,15 @@ td {
 .detail-star {
   max-height: 20px;
   margin-left: 5px;
+}
+
+.video-parent {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
