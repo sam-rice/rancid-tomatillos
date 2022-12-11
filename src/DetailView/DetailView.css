@@ -26,6 +26,7 @@
 
 .details-upper {
   display: flex;
+  flex-direction: row-reverse;
   justify-content: center;
   margin-bottom: 40px;
 }
@@ -113,7 +114,8 @@ td {
   }
 
   .rating-container {
-    width: 30px;
+    width: 100%;
+    align-items: flex-end;
   }
 
   .rating {

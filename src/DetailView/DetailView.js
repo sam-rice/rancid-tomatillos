@@ -103,6 +103,15 @@ function DetailView({ id }) {
           style={backdropStyle}
         >
           <div className="details-upper">
+            <div className="rating-container">
+              <p className="rating">
+                average rating:
+              </p>
+              <p data-cy="rating" className="rating-num">
+                {Math.round(movie.avgRating)}
+                <img className="detail-star" src={star} />
+              </p>
+            </div>
             <div className="test">
               <img
                 data-cy="poster"
@@ -129,15 +138,6 @@ function DetailView({ id }) {
                   </tbody>
                 </table>
               </div>
-            </div>
-            <div className="rating-container">
-              <p className="rating">
-                average rating:
-              </p>
-              <p data-cy="rating" className="rating-num">
-                {Math.round(movie.avgRating)}
-                <img className="detail-star" src={star} />
-              </p>
             </div>
           </div>
           <div className="video-parent">
