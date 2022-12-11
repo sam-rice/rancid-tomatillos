@@ -26,8 +26,14 @@
 
 .details-upper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-bottom: 40px;
+}
+
+.test {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
 }
 
 .poster {
@@ -68,15 +74,16 @@ td {
 
 .rating {
   font-size: .7rem;
+  text-align: center;
 }
 
 .rating-num {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 0px;
 }
 
 .detail-star {
-  max-height: 20px;
+  height: 20px;
   margin-left: 5px;
 }
 
@@ -90,3 +97,32 @@ td {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+@media (max-width: 580px) {
+  .text-container {
+    width: 250px;
+  }
+
+  .rating-container {
+    width: 30px;
+  }
+
+  .rating {
+    font-size: .5rem;
+  }
+
+  .rating-num {
+    font-size: 1rem;
+  }
+
+  .detail-star {
+    height: 10px;
+  }
+}
+
+@media (max-width: 475px) {
+  
+}
+
+/* 425
+360 */
