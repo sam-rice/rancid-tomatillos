@@ -16,6 +16,7 @@ function Tile({ title, year, img, rating, id }) {
   const overlay = 
     <div 
       className="overlay"
+      data-cy="overlay"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
@@ -36,7 +37,7 @@ function Tile({ title, year, img, rating, id }) {
       onBlur={() => setHover(false)}
       >
         <Link to={`/${id}`}>
-          <div className="img-container">
+          <div data-cy="img-container" className="img-container">
             <img 
               className={imageClassList}
               src={img} 
