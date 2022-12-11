@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import ReactPlayer from 'react-player/youtube'
 
 import "./DetailView.css"
 import backButton from "../assets/back-button.png"
@@ -60,6 +61,8 @@ function DetailView({ id }) {
 
   }, [])
 
+  const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`}  width="75%" />
+
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 
   const budgetRow = <tr>
@@ -72,7 +75,6 @@ function DetailView({ id }) {
     <td data-cy="revenue" className="td-key">{movie.revenue}</td>
   </tr>
 
-  // const videoElement = null
 
   const backdropStyle = {
     background: `linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.7) 100%), url(${movie.backdropURL})`
@@ -80,61 +82,67 @@ function DetailView({ id }) {
 
   return (
     <>
-      <div className="back-button-parent">
-        <Link
-          to="/"
-          role="button"
-          aria-label="return to home page"
-          data-cy="back-button"
+      {Object.keys(movie).length && <div className="details-grandparent">
+        <div className="back-button-parent">
+          <Link
+            to="/"
+            role="button"
+            aria-label="return to home page"
+            data-cy="back-button"
+          >
+            <img
+              src={backButton}
+              className="back-button"
+              alt="back button"
+            />
+          </Link>
+        </div>
+        <section
+          className="details-parent"
+          style={backdropStyle}
         >
-          <img
-            src={backButton}
-            className="back-button"
-            alt="back button"
-          />
-        </Link>
-      </div>
-      <section
-        className="details-parent"
-        style={backdropStyle}
-      >
-        <img
-          data-cy="poster"
-          className="poster"
-          src={movie.posterURL}
-          alt={`Poster for ${movie.title}`}
-        />
-        <div className="text-container">
-          <h2 data-cy="title" className="title">{`${movie.title} (${movie.releaseYear})`}</h2>
-          <p data-cy="genres" className="genres">{movie.genres}</p>
-          <p data-cy="overview" className="overview">{movie.overview}</p>
-          <table>
-            <tbody>
-              <tr>
-                <td>runtime:</td>
-                <td data-cy="runtime" className="td-key">{movie.runtime} minutes</td>
-              </tr>
-              <tr>
-                <td>release date:</td>
-                <td data-cy="release-date" className="td-key">{movie.releaseDate}</td>
-              </tr>
-              {movie.budget != 0 && budgetRow}
-              {movie.revenue != 0 && revenueRow}
-            </tbody>
-          </table>
-        </div>
-        <div className="rating-container">
-          <p className="rating">
-            average rating:
-          </p>
-          <p data-cy="rating" className="rating-num">
-            {Math.round(movie.avgRating)}
-            <img className="detail-star" src={star} />
-          </p>
-        </div>
-      </section>
+          <div className="details-upper">
+            <img
+              data-cy="poster"
+              className="poster"
+              src={movie.posterURL}
+              alt={`Poster for ${movie.title}`}
+            />
+            <div className="text-container">
+              <h2 data-cy="title" className="title">{`${movie.title} (${movie.releaseYear})`}</h2>
+              <p data-cy="genres" className="genres">{movie.genres}</p>
+              <p data-cy="overview" className="overview">{movie.overview}</p>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>runtime:</td>
+                    <td data-cy="runtime" className="td-key">{movie.runtime} minutes</td>
+                  </tr>
+                  <tr>
+                    <td>release date:</td>
+                    <td data-cy="release-date" className="td-key">{movie.releaseDate}</td>
+                  </tr>
+                  {movie.budget != 0 && budgetRow}
+                  {movie.revenue != 0 && revenueRow}
+                </tbody>
+              </table>
+            </div>
+            <div className="rating-container">
+              <p className="rating">
+                average rating:
+              </p>
+              <p data-cy="rating" className="rating-num">
+                {Math.round(movie.avgRating)}
+                <img className="detail-star" src={star} />
+              </p>
+            </div>
+          </div>
+          <div className="video-parent">
+            {videoURL && videoElement}
+          </div>
+        </section>
 
-      {/* {videoURL && videoElement} */}
+      </div>}
 
       {error && errorMessage}
     </>

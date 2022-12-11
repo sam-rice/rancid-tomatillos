@@ -25,7 +25,6 @@ li {
   transition-duration: .5s;
   cursor: pointer;
   filter: blur(1px);
-
 }
 
 .overlay {
