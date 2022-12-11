@@ -78,7 +78,7 @@ function DetailView({ id }) {
 
 
   const backdropStyle = {
-    background: `linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.7) 100%), url(${movie.backdropURL})`
+    background: `linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.4) 100%), url(${movie.backdropURL})`
   }
 
   return (
