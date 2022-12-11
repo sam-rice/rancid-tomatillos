@@ -58,7 +58,8 @@ function DetailView({ id }) {
         }
       })
       .catch(err => setError(err))
-
+      
+      window.scrollTo(0, 0)
   }, [])
 
   const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`}  width="75%" />
