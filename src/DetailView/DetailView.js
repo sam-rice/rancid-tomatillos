@@ -103,30 +103,32 @@ function DetailView({ id }) {
           style={backdropStyle}
         >
           <div className="details-upper">
-            <img
-              data-cy="poster"
-              className="poster"
-              src={movie.posterURL}
-              alt={`Poster for ${movie.title}`}
-            />
-            <div className="text-container">
-              <h2 data-cy="title" className="title">{`${movie.title} (${movie.releaseYear})`}</h2>
-              <p data-cy="genres" className="genres">{movie.genres}</p>
-              <p data-cy="overview" className="overview">{movie.overview}</p>
-              <table>
-                <tbody>
-                  <tr>
-                    <td>runtime:</td>
-                    <td data-cy="runtime" className="td-key">{movie.runtime} minutes</td>
-                  </tr>
-                  <tr>
-                    <td>release date:</td>
-                    <td data-cy="release-date" className="td-key">{movie.releaseDate}</td>
-                  </tr>
-                  {movie.budget != 0 && budgetRow}
-                  {movie.revenue != 0 && revenueRow}
-                </tbody>
-              </table>
+            <div className="test">
+              <img
+                data-cy="poster"
+                className="poster"
+                src={movie.posterURL}
+                alt={`Poster for ${movie.title}`}
+              />
+              <div className="text-container">
+                <h2 data-cy="title" className="title">{`${movie.title} (${movie.releaseYear})`}</h2>
+                <p data-cy="genres" className="genres">{movie.genres}</p>
+                <p data-cy="overview" className="overview">{movie.overview}</p>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>runtime:</td>
+                      <td data-cy="runtime" className="td-key">{movie.runtime} minutes</td>
+                    </tr>
+                    <tr>
+                      <td>release date:</td>
+                      <td data-cy="release-date" className="td-key">{movie.releaseDate}</td>
+                    </tr>
+                    {movie.budget != 0 && budgetRow}
+                    {movie.revenue != 0 && revenueRow}
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className="rating-container">
               <p className="rating">

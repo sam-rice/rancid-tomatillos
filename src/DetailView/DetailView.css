@@ -26,7 +26,7 @@
 
 .details-upper {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-bottom: 40px;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .text-container {
-  width: min(350px, 35%);
+  width: 45%;
 }
 
 .title {
@@ -99,6 +99,15 @@ td {
 }
 
 @media (max-width: 580px) {
+  .details-upper {
+    flex-direction: column;
+    align-items: center
+  }
+
+  .test {
+    width: 100%;
+  }
+
   .text-container {
     width: 250px;
   }
@@ -121,7 +130,9 @@ td {
 }
 
 @media (max-width: 475px) {
-  
+  .text-container {
+    width: 200px;
+  }
 }
 
 /* 425
