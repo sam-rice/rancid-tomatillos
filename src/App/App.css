@@ -6,3 +6,8 @@
 main {
   height: 79%;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

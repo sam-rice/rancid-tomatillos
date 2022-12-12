@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import ReactPlayer from 'react-player/youtube'
 
+import ControlBar from "../ControlBar/ControlBar"
 import "./DetailView.css"
-import backButton from "../assets/back-button.png"
 
-import star from "../assets/star.png"
-
-function DetailView({ id }) {
+function DetailView({ id, rateMovie, userRating }) {
   const [movie, setMovie] = useState({})
   const [videoURL, setVideoURL] = useState("")
   const [error, setError] = useState("")
 
   useEffect(() => {
+    getMovieData()
+    getTrailerData()
+    window.scrollTo(0, 0)
+  }, [])
+
+  const getMovieData = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => {
         if (!response.ok) {
@@ -43,7 +46,9 @@ function DetailView({ id }) {
         })
       })
       .catch(err => setError(err))
+  }
 
+  const getTrailerData = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
       .then(response => {
         if (!response.ok) {
@@ -58,9 +63,7 @@ function DetailView({ id }) {
         }
       })
       .catch(err => setError(err))
-
-    window.scrollTo(0, 0)
-  }, [])
+  }
 
   const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} width="75%" />
 
@@ -76,7 +79,6 @@ function DetailView({ id }) {
     <td data-cy="revenue" className="td-key">{movie.revenue}</td>
   </tr>
 
-
   const backdropStyle = {
     background: `linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.4) 100%), url(${movie.backdropURL})`
   }
@@ -84,30 +86,12 @@ function DetailView({ id }) {
   return (
     <>
       {Object.keys(movie).length && <div className="details-grandparent">
-        <div className="control-bar">
-          <Link
-            to="/"
-            role="button"
-            className="back-button"
-            aria-label="return to home page"
-            data-cy="back-button"
-          >
-            <img
-              src={backButton}
-              className="back-icon"
-              alt="back button"
-            />
-          </Link>
-          <div className="rating-container">
-            <p className="rating-label">
-              average rating:
-            </p>
-            <p data-cy="rating" className="rating-num">
-              {Math.round(movie.avgRating)}
-              <img className="detail-star" src={star} />
-            </p>
-          </div>
-        </div>
+        <ControlBar
+          rateMovie={rateMovie}
+          avgRating={movie.avgRating}
+          userRating={userRating}
+          id={id}
+        />
         <section
           className="details-parent"
           style={backdropStyle}

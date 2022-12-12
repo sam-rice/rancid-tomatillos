@@ -28,6 +28,7 @@ header {
   width: 152px;
   height: 43px;
   margin: 2rem;
+  animation: fadeIn 2s;
 }
 
 h1 {
@@ -51,6 +52,7 @@ h1 {
   top: 51px;
   right: 30px;
   width: 240px;
+  animation: fadeIn 2s;
 }
 
 input {
