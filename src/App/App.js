@@ -8,6 +8,7 @@ import Header from "../Header/Header"
 
 function App() {
   const [movies, setMovies] = useState([])
+  const [userRatings, setUserRatings] = useState([])
   const [query, setQuery] = useState("")
   const [err, setError] = useState("")
 
@@ -28,8 +29,16 @@ function App() {
     setQuery(input)
   }
 
-  const rateMovie = e => {
-    console.log(e.target)
+  const rateMovie = (e, id) => {
+    const matchedIndex = userRatings.findIndex(rating => rating.id == id)
+    const rating = e.target.innerText
+    if (matchedIndex !== -1) {
+      let newRatings = [...userRatings]
+      newRatings[matchedIndex].rating = rating
+      setUserRatings(newRatings)
+    } else {
+      setUserRatings([...userRatings, { id: id, rating: rating }])
+    }
   }
 
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
@@ -45,9 +54,12 @@ function App() {
         <Route
           exact path="/:id"
           render={({ match }) => {
+            const targetRating = userRatings.find(rating => match.params.id == rating.id)
+
             return <DetailView
               id={match.params.id}
               rateMovie={rateMovie}
+              userRating={targetRating && targetRating.rating}
             />
           }}
         />

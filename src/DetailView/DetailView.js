@@ -4,7 +4,7 @@ import ReactPlayer from 'react-player/youtube'
 import ControlBar from "../ControlBar/ControlBar"
 import "./DetailView.css"
 
-function DetailView({ id, rateMovie }) {
+function DetailView({ id, rateMovie, userRating }) {
   const [movie, setMovie] = useState({})
   const [videoURL, setVideoURL] = useState("")
   const [error, setError] = useState("")
@@ -86,7 +86,12 @@ function DetailView({ id, rateMovie }) {
   return (
     <>
       {Object.keys(movie).length && <div className="details-grandparent">
-        <ControlBar rateMovie={rateMovie} avgRating={movie.avgRating}/>
+        <ControlBar
+          rateMovie={rateMovie}
+          avgRating={movie.avgRating}
+          userRating={userRating}
+          id={id}
+        />
         <section
           className="details-parent"
           style={backdropStyle}

@@ -7,7 +7,7 @@ import "./ControlBar.css"
 import backButton from "../assets/back-button.png"
 import star from "../assets/star.png"
 
-const ControlBar = ({ rateMovie, avgRating }) => {
+const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
   return (
     <div className="control-bar">
       <Link
@@ -26,13 +26,16 @@ const ControlBar = ({ rateMovie, avgRating }) => {
       <div className="ratings-container">
         <div className="user-rating-container">
           <p className="rating-label">
-            average rating:
+            my rating:
           </p>
           <div data-cy="rating" className="rating">
-            {Math.round(avgRating)}
+            {userRating && userRating}
             <Tooltip
               placement="bottom"
-              overlay={<RatingTooltip rateMovie={rateMovie} />}
+              overlay={<RatingTooltip 
+                rateMovie={rateMovie} 
+                id={id}
+              />}
               arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
               trigger={['click']}
             >
