@@ -51,7 +51,10 @@ function Tile({ title, year, img, id, displayedRating, rated }) {
           {hovering && overlay}
         </div>
       </Link>
-      <p className="tile-rating">{displayedRating}
+      <p 
+        className="tile-rating"
+        data-cy="displayed-tile-rating"
+      >{displayedRating}
         <img className="star" src={userStar} />
       </p>
     </li>

@@ -33,7 +33,7 @@ const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
           <p className="rating-label">
             my rating:
           </p>
-          <div data-cy="rating" className="rating">
+          <div data-cy="user-rating" className="rating">
             {displayedUserRating}
             <Tooltip
               placement="bottom"
@@ -43,12 +43,14 @@ const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
               />}
               arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
               trigger={['click']}
+              
             >
               <img
                 className="user-rating-star"
                 src={userStar}
                 role="button"
                 aria-label="rate movie"
+                data-cy={"open-rating-tooltip"}
               />
             </Tooltip>
           </div>
@@ -57,7 +59,7 @@ const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
           <p className="rating-label">
             average rating:
           </p>
-          <div data-cy="rating" className="rating">
+          <div data-cy="avg-rating" className="rating">
             {Math.round(avgRating)}
             <img
               className="rating-star"

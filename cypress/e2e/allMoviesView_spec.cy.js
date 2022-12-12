@@ -24,7 +24,7 @@ describe("All Movies View", () => {
     cy.get('[data-cy="694919"]').find('[data-cy="img-container"]').trigger("mouseover")
       .find('[data-cy="overlay"]').find("p").first().contains("Money Plane")
     cy.get('[data-cy="694919"]').find('[data-cy="img-container"]').find('[data-cy="overlay"]').find("p").last().contains("(2020)")
-    cy.get('[data-cy="694919"]').find("p").contains("6.9")
+    cy.get('[data-cy="694919"]').find('[data-cy="displayed-tile-rating"]').contains("7")
   })
 
   it("should render the correct data for the last tile", () => {
@@ -32,7 +32,7 @@ describe("All Movies View", () => {
     cy.get('[data-cy="632618"]').find('[data-cy="img-container"]').trigger("mouseover")
       .find('[data-cy="overlay"]').find("p").first().contains("The Crimes That Bind")
     cy.get('[data-cy="632618"]').find('[data-cy="img-container"]').find('[data-cy="overlay"]').find("p").last().contains("(2020)")
-    cy.get('[data-cy="632618"]').find("p").contains("4.9")
+    cy.get('[data-cy="632618"]').find('[data-cy="displayed-tile-rating"]').contains("5")
   })
 
   it("should not display the search bar immediately upon page load", () => {

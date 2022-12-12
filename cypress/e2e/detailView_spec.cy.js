@@ -57,12 +57,32 @@ describe("All Movies View - Complete Data", () => {
   })
 
   it("should display a movie's average rating", () => {
-    cy.get('[data-cy="rating"').contains("5")
+    cy.get('[data-cy="avg-rating"]').contains("5")
   })
 
   it("should have a \"back\" button that takes the user back to the home page", () => {
-    cy.get('[data-cy="back-button"').click()
+    cy.get('[data-cy="back-button"]').click()
     cy.url().should("equal", "http://localhost:3000/")
+  })
+
+  it("should allow a user to leave their own review", () => {
+    cy.get('[data-cy="open-rating-tooltip"').click()
+    cy.get('[data-cy="rating-3"]').click()
+    cy.get('[data-cy="user-rating"]').contains("3")
+  })
+
+  it("should allow a user to change their review", () => {
+    cy.get('[data-cy="open-rating-tooltip"').click()
+    cy.get('[data-cy="rating-3"]').click()
+    cy.get('[data-cy="rating-7"]').click()
+    cy.get('[data-cy="user-rating"]').contains("7")
+  })
+
+  it("should should display user reviews instead of average reviews on the home page, if the user has left one", () => {
+    cy.get('[data-cy="open-rating-tooltip"').click()
+    cy.get('[data-cy="rating-7"]').click()
+    cy.get('[data-cy="back-button"]').click()
+    cy.get('[data-cy="337401"]').find('[data-cy="displayed-tile-rating"]').contains("7")
   })
 })
 
