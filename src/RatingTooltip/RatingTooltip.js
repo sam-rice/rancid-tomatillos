@@ -18,6 +18,7 @@ const RatingTooltip = ({ rateMovie, id }) => {
         className="rating-buttons"
         onClick={e => rateMovie(e, id)}
         aria-label="rate movie 3/10"
+        data-cy={"rating-3"}
       >3</button>
       <button 
         className="rating-buttons"
@@ -38,6 +39,7 @@ const RatingTooltip = ({ rateMovie, id }) => {
         className="rating-buttons"
         onClick={e => rateMovie(e, id)}
         aria-label="rate movie 7/10"
+        data-cy={"rating-7"}
       >7</button>
       <button 
         className="rating-buttons"
