@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import ReactPlayer from 'react-player/youtube'
+import Tooltip from "rc-tooltip"
+import 'rc-tooltip/assets/bootstrap_white.css'
 
 import "./DetailView.css"
 import backButton from "../assets/back-button.png"
@@ -13,6 +15,12 @@ function DetailView({ id }) {
   const [error, setError] = useState("")
 
   useEffect(() => {
+    getMovieData()
+    getTrailerData()
+    window.scrollTo(0, 0)
+  }, [])
+
+  const getMovieData = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => {
         if (!response.ok) {
@@ -43,7 +51,9 @@ function DetailView({ id }) {
         })
       })
       .catch(err => setError(err))
+  }
 
+  const getTrailerData = () => {
     fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
       .then(response => {
         if (!response.ok) {
@@ -58,9 +68,7 @@ function DetailView({ id }) {
         }
       })
       .catch(err => setError(err))
-
-    window.scrollTo(0, 0)
-  }, [])
+  }
 
   const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} width="75%" />
 
@@ -104,7 +112,9 @@ function DetailView({ id }) {
             </p>
             <p data-cy="rating" className="rating-num">
               {Math.round(movie.avgRating)}
-              <img className="detail-star" src={star} />
+              <Tooltip placement="bottom"  overlay="test" arrowContent={<div className="rc-tooltip-arrow-inner"></div>}>
+                <img className="detail-star" src={star} />
+              </Tooltip>
             </p>
           </div>
         </div>
