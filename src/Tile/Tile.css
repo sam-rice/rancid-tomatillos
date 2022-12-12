@@ -58,8 +58,3 @@ li {
   right: 46px;
   max-height: 12px;
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
