@@ -6,6 +6,7 @@ import RatingTooltip from "../RatingTooltip/RatingTooltip"
 import "./ControlBar.css"
 import backButton from "../assets/back-button.png"
 import star from "../assets/star.png"
+import blueStar from "../assets/star-blue.png"
 
 const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
   return (
@@ -41,7 +42,7 @@ const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
             >
               <img
                 className="user-rating-star"
-                src={star}
+                src={blueStar}
                 role="button"
                 aria-label="rate movie"
               />
