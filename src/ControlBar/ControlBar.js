@@ -4,6 +4,8 @@ import Tooltip from "rc-tooltip"
 import RatingTooltip from "../RatingTooltip/RatingTooltip"
 
 import "./ControlBar.css"
+import backButton from "../assets/back-button.png"
+import star from "../assets/star.png"
 
 const ControlBar = ({ rateMovie, avgRating }) => {
   return (

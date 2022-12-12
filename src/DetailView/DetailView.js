@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import ReactPlayer from 'react-player/youtube'
-import Tooltip from "rc-tooltip"
 
-import RatingTooltip from "../RatingTooltip/RatingTooltip"
-import "../RatingTooltip/RatingTooltip.css"
+import ControlBar from "../ControlBar/ControlBar"
 import "./DetailView.css"
-import backButton from "../assets/back-button.png"
-import star from "../assets/star.png"
 
-function DetailView({ id }) {
+function DetailView({ id, rateMovie }) {
   const [movie, setMovie] = useState({})
   const [videoURL, setVideoURL] = useState("")
   const [error, setError] = useState("")
@@ -70,10 +65,6 @@ function DetailView({ id }) {
       .catch(err => setError(err))
   }
 
-  const rateMovie = e => {
-    console.log(e.target)
-  }
-
   const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} width="75%" />
 
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
@@ -95,58 +86,7 @@ function DetailView({ id }) {
   return (
     <>
       {Object.keys(movie).length && <div className="details-grandparent">
-        <div className="control-bar">
-          <Link
-            to="/"
-            role="button"
-            className="back-button"
-            aria-label="return to home page"
-            data-cy="back-button"
-          >
-            <img
-              src={backButton}
-              className="back-icon"
-              alt="back button"
-            />
-          </Link>
-          <div className="ratings-container">
-            <div className="user-rating-container">
-              <p className="rating-label">
-                average rating:
-              </p>
-              <div data-cy="rating" className="rating">
-                {Math.round(movie.avgRating)}
-                <Tooltip
-                  placement="bottom"
-                  overlay={<RatingTooltip rateMovie={rateMovie}/>}
-                  arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
-                  trigger={['click']}
-                >
-                  <img
-                    className="user-rating-star"
-                    src={star}
-                    role="button"
-                    aria-label="rate movie"
-                  />
-                </Tooltip>
-              </div>
-            </div>
-            <div className="rating-container">
-              <p className="rating-label">
-                average rating:
-              </p>
-              <div data-cy="rating" className="rating">
-                {Math.round(movie.avgRating)}
-                  <img
-                    className="rating-star"
-                    src={star}
-                    role="button"
-                    aria-label="rate movie"
-                  />
-              </div>
-            </div>
-          </div>
-        </div>
+        <ControlBar rateMovie={rateMovie} avgRating={movie.avgRating}/>
         <section
           className="details-parent"
           style={backdropStyle}

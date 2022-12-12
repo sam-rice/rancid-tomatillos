@@ -28,6 +28,10 @@ function App() {
     setQuery(input)
   }
 
+  const rateMovie = e => {
+    console.log(e.target)
+  }
+
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 
   return (
@@ -41,7 +45,10 @@ function App() {
         <Route
           exact path="/:id"
           render={({ match }) => {
-            return <DetailView id={match.params.id} />
+            return <DetailView
+              id={match.params.id}
+              rateMovie={rateMovie}
+            />
           }}
         />
         <Route
