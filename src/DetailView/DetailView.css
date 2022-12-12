@@ -2,66 +2,6 @@
   animation: fadeIn 1s;
 }
 
-.control-bar {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  background: linear-gradient(0deg, rgb(0, 0, 0) 15%, rgba(0, 0, 0, 0) 100%);
-  padding-bottom: max(15px, 2vw)
-}
-
-.back-button {
-  margin-left: 10%;
-}
-
-.back-icon {
-  height: 30px;
-}
-
-.ratings-container {
-  display: flex;
-  
-  color: white;
-  margin-right: 10%;
-}
-
-
-
-.rating-container,
-.user-rating-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.user-rating-container {
-  margin-right: 20px;
-}
-
-.rating-label {
-  font-size: max(1vw, .5rem);
-  margin: 0px;
-}
-
-.rating {
-  font-size: max(2vw, .8rem);
-  margin: 0px;
-}
-
-.rating-star,
-.user-rating-star {
-  height: max(1.6vw, 10px);
-  margin-left: 5px;
-}
-
-.user-rating-star {
-  cursor: pointer;
-}
-
-.tooltip-inner {
-  padding: 0px !important;
-}
-
 .details-parent {
   display: flex;
   justify-content: space-around;

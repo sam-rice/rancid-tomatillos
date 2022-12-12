@@ -7,8 +7,12 @@ import "./ControlBar.css"
 import backButton from "../assets/back-button.png"
 import star from "../assets/star.png"
 import blueStar from "../assets/star-blue.png"
+import blueOutlineStar from "../assets/star-blue-outline.png"
 
 const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
+  const userStar = userRating ? blueStar : blueOutlineStar
+  const displayedUserRating = userRating ? userRating : <p className="rate-prompt" >rate<br />movie</p>
+
   return (
     <div className="control-bar">
       <Link
@@ -30,7 +34,7 @@ const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
             my rating:
           </p>
           <div data-cy="rating" className="rating">
-            {userRating && userRating}
+            {displayedUserRating}
             <Tooltip
               placement="bottom"
               overlay={<RatingTooltip 
@@ -42,7 +46,7 @@ const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
             >
               <img
                 className="user-rating-star"
-                src={blueStar}
+                src={userStar}
                 role="button"
                 aria-label="rate movie"
               />
