@@ -16,6 +16,7 @@ This project also includes a Cypress.io acceptance test suite.
 - HTML5
 - Lighthouse and WAVE accessibility tools 
 - Webpack
+- Figma
 
 ### Methodologies/Goals
 
