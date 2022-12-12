@@ -13,6 +13,10 @@ function App() {
   const [err, setError] = useState("")
 
   useEffect(() => {
+    getAllMovies()
+  }, [])
+
+  const getAllMovies = () => {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
       .then(response => {
         if (!response.ok) {
@@ -23,7 +27,7 @@ function App() {
       })
       .then(({ movies }) => setMovies(movies))
       .catch(err => setError(err))
-  }, [])
+  }
 
   const updateQuery = input => {
     setQuery(input)
@@ -68,6 +72,7 @@ function App() {
           render={() => <AllMoviesView
             movies={movies}
             query={query}
+            userRatings={userRatings}
           />}
         />
       </main>

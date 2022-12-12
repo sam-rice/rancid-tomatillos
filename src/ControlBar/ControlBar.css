@@ -1,3 +1,7 @@
+:root {
+  --tooltip-inner-color: #3f3f3f;
+}
+
 .control-bar {
   display: flex;
   justify-content: space-between;
@@ -51,7 +55,7 @@
 
 .rating-star,
 .user-rating-star {
-  height: max(1.6vw, 10px);
+  height: 1.1rem;
   margin-left: 5px;
 }
 
@@ -82,7 +86,7 @@
 .rc-tooltip-inner {
   padding: 5px 7px;
   background-color: var(--tooltip-inner-color);
-  min-height: 18px;
+  min-height: 16px;
 }
 .rc-tooltip-arrow,
 .rc-tooltip-arrow-inner {

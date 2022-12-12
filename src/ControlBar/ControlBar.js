@@ -11,7 +11,7 @@ import blueOutlineStar from "../assets/star-blue-outline.png"
 
 const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
   const userStar = userRating ? blueStar : blueOutlineStar
-  const displayedUserRating = userRating ? userRating : <p className="rate-prompt" >rate<br />movie</p>
+  const displayedUserRating = userRating ? userRating : <p className="rate-prompt">rate<br />movie</p>
 
   return (
     <div className="control-bar">

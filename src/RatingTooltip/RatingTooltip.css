@@ -1,7 +1,3 @@
-:root {
-  --tooltip-inner-color: #3f3f3f;
-}
-
 .rating-buttons-parent {
   display: flex;
   margin-bottom: -10px;
@@ -10,8 +6,18 @@
 .rating-buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: white;
   width: 16px;
+  height: 16px;
   font-size: .6rem;
   margin: 0px 1px;
   cursor: pointer;
+  border-radius: 50%;
+  border: none;
+}
+
+.rating-buttons:hover {
+  background-color: gray;
+  color: white;
 }

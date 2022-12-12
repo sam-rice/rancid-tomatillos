@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import "./Tile.css"
 
 import star from "../assets/star.png"
+import blueStar from "../assets/star-blue.png"
 
-function Tile({ title, year, img, rating, id }) {
+function Tile({ title, year, img, id, displayedRating, rated }) {
   const [ hovering, setHover ] = useState(false)
 
   const handleKeyDown = e => {
@@ -12,6 +13,8 @@ function Tile({ title, year, img, rating, id }) {
       e.target.firstChild.click()
     }
   }
+
+  const userStar = rated ? blueStar : star
 
   const overlay =
     <div
@@ -48,8 +51,8 @@ function Tile({ title, year, img, rating, id }) {
           {hovering && overlay}
         </div>
       </Link>
-      <p className="tile-rating">{rating.toFixed(1)}
-        <img className="star" src={star} />
+      <p className="tile-rating">{displayedRating}
+        <img className="star" src={userStar} />
       </p>
     </li>
   )
