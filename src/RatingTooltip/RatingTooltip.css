@@ -13,52 +13,5 @@
   width: 16px;
   font-size: .6rem;
   margin: 0px 1px;
-}
-
-.rc-tooltip {
-  position: absolute;
-  z-index: 1070;
-  display: block;
-  visibility: visible;
-  line-height: 1.5;
-  font-size: 12px;
-  background-color: rgba(0, 0, 0, 0.05);
-  padding: 1px;
-  opacity: 0.9;
-  border-radius: 4px;
-}
-
-.rc-tooltip-hidden {
-  display: none;
-}
-.rc-tooltip-inner {
-  padding: 5px 7px;
-  background-color: var(--tooltip-inner-color);
-  min-height: 18px;
-}
-.rc-tooltip-arrow,
-.rc-tooltip-arrow-inner {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-}
-.rc-tooltip-placement-bottom,
-.rc-tooltip-arrow {
-  top: -5px;
-  margin-left: -6px;
-  border-width: 0 6px 6px;
-  border-bottom-color: var(--tooltip-inner-color);
-}
-.rc-tooltip-placement-bottom,
-.rc-tooltip-arrow-inner {
-  top: 1px;
-  margin-left: -6px;
-  border-width: 0 6px 6px;
-  border-bottom-color: var(--tooltip-inner-color);
-}
-.rc-tooltip-placement-bottom,
-.rc-tooltip-arrow {
-  left: 50%;
+  cursor: pointer;
 }

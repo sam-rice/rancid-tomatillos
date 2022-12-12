@@ -109,27 +109,42 @@ function DetailView({ id }) {
               alt="back button"
             />
           </Link>
-          <div className="rating-container">
-            <p className="rating-label">
-              average rating:
-            </p>
-            <p data-cy="rating" className="rating-num">
-              {Math.round(movie.avgRating)}
-              <Tooltip
-                className="tooltip-inner"
-                placement="bottom"
-                overlay={<RatingTooltip rateMovie={rateMovie}/>}
-                arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
-                trigger={['click']}
-              >
-                <img
-                  className="detail-star"
-                  src={star}
-                  role="button"
-                  aria-label="rate movie"
-                />
-              </Tooltip>
-            </p>
+          <div className="ratings-container">
+            <div className="user-rating-container">
+              <p className="rating-label">
+                average rating:
+              </p>
+              <div data-cy="rating" className="rating">
+                {Math.round(movie.avgRating)}
+                <Tooltip
+                  placement="bottom"
+                  overlay={<RatingTooltip rateMovie={rateMovie}/>}
+                  arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
+                  trigger={['click']}
+                >
+                  <img
+                    className="user-rating-star"
+                    src={star}
+                    role="button"
+                    aria-label="rate movie"
+                  />
+                </Tooltip>
+              </div>
+            </div>
+            <div className="rating-container">
+              <p className="rating-label">
+                average rating:
+              </p>
+              <div data-cy="rating" className="rating">
+                {Math.round(movie.avgRating)}
+                  <img
+                    className="rating-star"
+                    src={star}
+                    role="button"
+                    aria-label="rate movie"
+                  />
+              </div>
+            </div>
           </div>
         </div>
         <section

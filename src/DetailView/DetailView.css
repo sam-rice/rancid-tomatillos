@@ -18,12 +18,24 @@
   height: 30px;
 }
 
-.rating-container {
+.ratings-container {
+  display: flex;
+  
   color: white;
+  margin-right: 10%;
+}
+
+
+
+.rating-container,
+.user-rating-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 10%;
+}
+
+.user-rating-container {
+  margin-right: 20px;
 }
 
 .rating-label {
@@ -31,14 +43,18 @@
   margin: 0px;
 }
 
-.rating-num {
-  font-size: max(3vw, .8rem);
+.rating {
+  font-size: max(2vw, .8rem);
   margin: 0px;
 }
 
-.detail-star {
-  height: max(2vw, 10px);
+.rating-star,
+.user-rating-star {
+  height: max(1.6vw, 10px);
   margin-left: 5px;
+}
+
+.user-rating-star {
   cursor: pointer;
 }
 
