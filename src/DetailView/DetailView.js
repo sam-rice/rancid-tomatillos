@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import ReactPlayer from 'react-player/youtube'
 import Tooltip from "rc-tooltip"
-import 'rc-tooltip/assets/bootstrap_white.css'
 
+import RatingTooltip from "../RatingTooltip/RatingTooltip"
+import "../RatingTooltip/RatingTooltip.css"
 import "./DetailView.css"
 import backButton from "../assets/back-button.png"
-
 import star from "../assets/star.png"
 
 function DetailView({ id }) {
@@ -70,6 +70,10 @@ function DetailView({ id }) {
       .catch(err => setError(err))
   }
 
+  const rateMovie = e => {
+    console.log(e.target)
+  }
+
   const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} width="75%" />
 
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
@@ -83,7 +87,6 @@ function DetailView({ id }) {
     <td>box office:</td>
     <td data-cy="revenue" className="td-key">{movie.revenue}</td>
   </tr>
-
 
   const backdropStyle = {
     background: `linear-gradient(180deg, rgba(0,0,0,1) 10%, rgba(0,0,0,0.4) 100%), url(${movie.backdropURL})`
@@ -112,8 +115,19 @@ function DetailView({ id }) {
             </p>
             <p data-cy="rating" className="rating-num">
               {Math.round(movie.avgRating)}
-              <Tooltip placement="bottom"  overlay="test" arrowContent={<div className="rc-tooltip-arrow-inner"></div>}>
-                <img className="detail-star" src={star} />
+              <Tooltip
+                className="tooltip-inner"
+                placement="bottom"
+                overlay={<RatingTooltip rateMovie={rateMovie}/>}
+                arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
+                trigger={['click']}
+              >
+                <img
+                  className="detail-star"
+                  src={star}
+                  role="button"
+                  aria-label="rate movie"
+                />
               </Tooltip>
             </p>
           </div>

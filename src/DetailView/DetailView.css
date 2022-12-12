@@ -39,6 +39,11 @@
 .detail-star {
   height: max(2vw, 10px);
   margin-left: 5px;
+  cursor: pointer;
+}
+
+.tooltip-inner {
+  padding: 0px !important;
 }
 
 .details-parent {
