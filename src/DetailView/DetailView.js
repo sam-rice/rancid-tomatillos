@@ -65,7 +65,7 @@ function DetailView({ id, rateMovie, userRating }) {
       .catch(err => setError(err))
   }
 
-  const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} width="75%" />
+  const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} />
 
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 

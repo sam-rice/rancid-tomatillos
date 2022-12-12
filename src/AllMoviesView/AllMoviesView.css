@@ -1,11 +1,11 @@
 ul {
   display: grid;
   justify-items: center;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(127px, 1fr));
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(193px, 1fr));
   padding: 0px;
-  margin: 0% 8%;
   animation: fadeIn 1s;
+  margin: 15px 8%;
 }
 
 .no-matches-message {

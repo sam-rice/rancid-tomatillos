@@ -7,7 +7,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 115px;
+  height: 145px;
 }
 
 .header-left, 
@@ -25,21 +25,21 @@ header {
   align-items: center;
   justify-content: space-around;
   text-decoration: none;
-  width: 152px;
-  height: 43px;
+  width: 230px;
+  height: 67px;
   margin: 2rem;
   animation: fadeIn 2s;
 }
 
 h1 {
   font-family: "Nunito Sans", sans-serif;
-  font-size: 1.1em;
-  line-height: 17px;
+  font-size: 1.7em;
+  line-height: 25px;
   color: var(--app-green);
 }
 
 .logo {
-  height: 30px;
+  height: 40px;
   width: auto;
 }
 
@@ -60,20 +60,20 @@ input {
   float: right;
   position: relative;
   width: 23px;
-  height: 25px;
+  height: 37px;
   margin-right: 40px;
   background-color: gray;
   border: 1px solid white;
   color: white;
-  text-indent: 17px;
-  font-size: .7em;
+  text-indent: 23px;
+  font-size: .9rem;
   opacity: 0;
   transition: 700ms width, 700ms opacity;
 }
 
 .input-transition {
   opacity: 1;
-  width: 200px;
+  width: 250px;
 }
 
 input::placeholder {
@@ -84,15 +84,15 @@ i {
   color: white;
   position: absolute;
   right: 42px;
-  font-size: 17px !important;
-  margin: 4px 0px 0px 2px;
+  font-size: 20px !important;
+  margin: 9px 0px;
   cursor: pointer;
   z-index: 10;
   transition: 700ms right;
 }
 
 .icon-transition {
-  right: 220px;
+  right: 266px;
 }
 
 [type="search"]::-webkit-search-cancel-button {
