@@ -15,8 +15,10 @@ function DetailView({ id, rateMovie, userRating }) {
     window.scrollTo(0, 0)
   }, [])
 
+
+
   const getMovieData = () => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+    fetch(`http://localhost:3001/api/v1/movies/${id}`)
       .then(response => {
         if (!response.ok) {
           throw Error(response.ok)
@@ -49,7 +51,7 @@ function DetailView({ id, rateMovie, userRating }) {
   }
 
   const getTrailerData = () => {
-    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`)
+    fetch(`http://localhost:3001/api/v1/movies/${id}/videos`)
       .then(response => {
         if (!response.ok) {
           throw Error(response.ok)
@@ -59,7 +61,9 @@ function DetailView({ id, rateMovie, userRating }) {
       })
       .then(({ videos }) => {
         if (videos.length) {
-          setVideoURL(videos[0].key)
+          const trailer = videos.find(video => video.type === "Trailer")
+          const targetVideo = trailer ? trailer : videos[0]
+          setVideoURL(targetVideo.key)
         }
       })
       .catch(err => setError(err))
