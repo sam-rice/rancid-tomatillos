@@ -28,7 +28,7 @@
 }
 
 .title {
-  font-size: min(2.3rem, 3vw);
+  font-size: min(2.3rem, 3.1vw);
   margin: 0px 0px 7px;
 }
 
@@ -65,6 +65,18 @@ td {
   .video-parent {
     width: 82vw;
   }
+
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .text-container {
+    width: 50%;
+  }
+
+  .details-upper {
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 580px) {
@@ -73,17 +85,11 @@ td {
   }
 }
 
-@media (max-width: 475px) {
-  .genres {
-    font-size: .5rem;
+@media (max-width: 470px) {
+  .details-upper {
+    margin-top: 25px;
   }
 
-  td {
-    font-size: .6rem;
-  }
-}
-
-@media (max-width: 300px) {
   .details-upper {
     flex-direction: column;
     align-items: center;

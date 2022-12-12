@@ -15,7 +15,7 @@
 }
 
 .back-icon {
-  height: 40px;
+  height: 45px;
 }
 
 .ratings-container {
@@ -49,13 +49,13 @@
 }
 
 .rate-prompt {
-  font-size: .7rem;
+  font-size: .8rem;
   margin: 0px;
 }
 
 .rating-star,
 .user-rating-star {
-  height: 1.5rem;
+  height: 1.7rem;
   margin-left: 5px;
 }
 

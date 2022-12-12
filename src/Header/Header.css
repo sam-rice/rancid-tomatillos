@@ -99,11 +99,11 @@ i {
   background-size: 10px 10px;
 }
 
-@media (max-width: 475px) {
+@media (max-width: 630px) {
 
   header {
     flex-direction: column;
-    height: 100px;
+    height: 130px;
     margin-bottom: 15px;
   }
 
@@ -131,7 +131,7 @@ i {
     position: relative;
     top: 0px;
     right: 0px;
-    width: 200px;
+    width: 250px;
   }
 
   input {
@@ -139,12 +139,12 @@ i {
     float: none;
     transition: none;
     opacity: 1;
-    width: 200px;
+    width: 250px;
   }
 
   i {
     transition: none;
-    right: 180px;
+    right: 217px;
   }
 
   .icon-transition {
