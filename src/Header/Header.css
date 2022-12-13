@@ -1,13 +1,8 @@
-.app,
-header {
-  flex: 0 1 auto;
-}
-
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 115px;
+  height: 145px;
 }
 
 .header-left, 
@@ -25,21 +20,21 @@ header {
   align-items: center;
   justify-content: space-around;
   text-decoration: none;
-  width: 152px;
-  height: 43px;
-  margin: 2rem;
+  width: 230px;
+  height: 67px;
+  margin: 2.5rem;
   animation: fadeIn 2s;
 }
 
 h1 {
   font-family: "Nunito Sans", sans-serif;
-  font-size: 1.1em;
-  line-height: 17px;
+  font-size: 1.7em;
+  line-height: 25px;
   color: var(--app-green);
 }
 
 .logo {
-  height: 30px;
+  height: 40px;
   width: auto;
 }
 
@@ -60,20 +55,20 @@ input {
   float: right;
   position: relative;
   width: 23px;
-  height: 25px;
+  height: 37px;
   margin-right: 40px;
   background-color: gray;
   border: 1px solid white;
   color: white;
-  text-indent: 17px;
-  font-size: .7em;
+  text-indent: 32px;
+  font-size: .9rem;
   opacity: 0;
   transition: 700ms width, 700ms opacity;
 }
 
 .input-transition {
   opacity: 1;
-  width: 200px;
+  width: 250px;
 }
 
 input::placeholder {
@@ -84,15 +79,15 @@ i {
   color: white;
   position: absolute;
   right: 42px;
-  font-size: 17px !important;
-  margin: 4px 0px 0px 2px;
+  font-size: 30px !important;
+  margin: 4px 0px;
   cursor: pointer;
   z-index: 10;
   transition: 700ms right;
 }
 
 .icon-transition {
-  right: 220px;
+  right: 257px;
 }
 
 [type="search"]::-webkit-search-cancel-button {
@@ -104,11 +99,11 @@ i {
   background-size: 10px 10px;
 }
 
-@media (max-width: 475px) {
+@media (max-width: 630px) {
 
   header {
     flex-direction: column;
-    height: 100px;
+    height: 130px;
     margin-bottom: 15px;
   }
 
@@ -136,7 +131,7 @@ i {
     position: relative;
     top: 0px;
     right: 0px;
-    width: 200px;
+    width: 250px;
   }
 
   input {
@@ -144,12 +139,12 @@ i {
     float: none;
     transition: none;
     opacity: 1;
-    width: 200px;
+    width: 250px;
   }
 
   i {
     transition: none;
-    right: 180px;
+    right: 217px;
   }
 
   .icon-transition {

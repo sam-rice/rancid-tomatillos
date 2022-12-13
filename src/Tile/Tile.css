@@ -1,15 +1,15 @@
 li {
   text-align: center;
   list-style: none;
-  width: 127px;
-  height: 222px;
+  width: 195px;
+  height: 315px;
   color: white;
 }
 
 .img-container {
   position: relative;
   overflow: hidden;
-  height: 187px;
+  height: 291px;
   margin-bottom: 3px;
 }
 
@@ -34,7 +34,7 @@ li {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 93%;
+  width: 95%;
   height: 100%;
   padding: 0px 5px;
   background-color: rgba(0, 0, 0, 0.698);
@@ -45,16 +45,18 @@ li {
 .overlay-text {
   animation: fadeIn .5s;
   color: white;
+  font-size: 1.4rem;
 }
 
 .tile-rating {
   position: relative;
   margin: 0px;
-  font-size: .7rem;
+  font-size: 1.2rem;
 }
 
 .star {
   position: absolute;
-  right: 46px;
-  max-height: 12px;
+  right: 67px;
+  top: 2px;
+  height: 19px;
 }

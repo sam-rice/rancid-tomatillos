@@ -6,8 +6,8 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  align-items: center;
   height: -webkit-fill-available;
-  /* not sure about above */
   color: white;
   padding: 1% 6%;
 }
@@ -19,7 +19,7 @@
 }
 
 .poster {
-  width: min(210px, 28vw);
+  width: min(310px, 28vw);
   height: fit-content;
 }
 
@@ -28,22 +28,22 @@
 }
 
 .title {
-  font-size: clamp(1rem, 1.5rem, 4vw);
+  font-size: min(2.3rem, 3.1vw);
   margin: 0px 0px 7px;
 }
 
 .genres {
-  font-size: .6rem;
+  font-size: .9rem;
   margin-bottom: 30px;
 }
 
 .overview {
-  font-size: .6rem;
+  font-size: 1rem;
   margin-bottom: 30px;
 }
 
 td {
-  font-size: .6rem;
+  font-size: 1rem;
 }
 
 .td-key {
@@ -53,12 +53,30 @@ td {
 .video-parent {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 600px;
 }
 
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@media (max-width: 725px) {
+  .video-parent {
+    width: 82vw;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+  
+  .text-container {
+    width: 50%;
+  }
+
+  .details-upper {
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 580px) {
@@ -67,17 +85,11 @@ td {
   }
 }
 
-@media (max-width: 475px) {
-  .genres {
-    font-size: .5rem;
+@media (max-width: 470px) {
+  .details-upper {
+    margin-top: 25px;
   }
 
-  td {
-    font-size: .6rem;
-  }
-}
-
-@media (max-width: 300px) {
   .details-upper {
     flex-direction: column;
     align-items: center;

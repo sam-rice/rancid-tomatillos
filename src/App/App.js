@@ -17,7 +17,7 @@ function App() {
   }, [])
 
   const getAllMovies = () => {
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+    fetch("http://localhost:3001/api/v1/movies")
       .then(response => {
         if (!response.ok) {
           throw Error(response.ok)

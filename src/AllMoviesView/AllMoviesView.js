@@ -5,7 +5,7 @@ import Tile from "../Tile/Tile"
 
 function AllMoviesView({ movies, query, userRatings }) {
 
-  const displayedMovies = !query ? 
+  const displayedMovies = !query ?
     movies :
     movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
 
@@ -13,9 +13,9 @@ function AllMoviesView({ movies, query, userRatings }) {
 
     const targetRating = userRatings.find(rating => rating.id == movie.id)
 
-    const displayedRating = targetRating ? 
-    targetRating.rating : 
-    movie.average_rating.toFixed()
+    const displayedRating = targetRating ?
+      targetRating.rating :
+      movie.average_rating.toFixed()
 
     return <Tile
       title={movie.title}
