@@ -55,7 +55,11 @@ function Tile({ title, year, img, id, displayedRating, rated }) {
         className="tile-rating"
         data-cy="displayed-tile-rating"
       >{displayedRating}
-        <img className="star" src={userStar} />
+        <img
+          className="star"
+          src={userStar}
+          alt="rating star"
+        />
       </p>
     </li>
   )
