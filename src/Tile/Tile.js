@@ -6,7 +6,7 @@ import star from "../assets/star.png"
 import blueStar from "../assets/star-blue.png"
 
 function Tile({ title, year, img, id, displayedRating, rated }) {
-  const [ hovering, setHover ] = useState(false)
+  const [hovering, setHover] = useState(false)
 
   const handleKeyDown = e => {
     if (e.key === "Enter") {
@@ -51,7 +51,7 @@ function Tile({ title, year, img, id, displayedRating, rated }) {
           {hovering && overlay}
         </div>
       </Link>
-      <p 
+      <p
         className="tile-rating"
         data-cy="displayed-tile-rating"
       >{displayedRating}

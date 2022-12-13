@@ -17,7 +17,7 @@ function App() {
   }, [])
 
   const getAllMovies = () => {
-    fetch("http://localhost:3001/api/v1/movies")
+    fetch("https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies")
       .then(response => {
         if (!response.ok) {
           throw Error(response.ok)
