@@ -18,7 +18,7 @@ function DetailView({ id, rateMovie, userRating }) {
 
 
   const getMovieData = () => {
-    fetch(`http://localhost:3001/api/v1/movies/${id}`)
+    fetch(`https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies/${id}`)
       .then(response => {
         if (!response.ok) {
           throw Error(response.ok)
@@ -51,7 +51,7 @@ function DetailView({ id, rateMovie, userRating }) {
   }
 
   const getTrailerData = () => {
-    fetch(`http://localhost:3001/api/v1/movies/${id}/videos`)
+    fetch(`https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies/${id}/videos`)
       .then(response => {
         if (!response.ok) {
           throw Error(response.ok)
