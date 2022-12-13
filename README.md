@@ -13,6 +13,7 @@
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
   <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" />
+  <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white" />
 </p>
 
 ### Abstract
@@ -41,7 +42,7 @@ Rancid Tomatillos is a multi-page React web application designed to emulate a mo
 ![rt-detail-view-wireframe](https://user-images.githubusercontent.com/108169988/207408075-0ff84898-7b0f-4941-a1f0-5cfc1f834c99.png)
 
 
-### Addl Packages/Dependencies
+### Additional Packages/Dependencies
 
 - [React Router](https://v5.reactrouter.com/)
 - [rc-tooltip](https://www.npmjs.com/package/rc-tooltip)
