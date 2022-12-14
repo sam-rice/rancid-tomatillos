@@ -3,9 +3,9 @@ describe("All Movies View", () => {
   beforeEach(() => {
     cy.intercept({
       method: "GET",
-      url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies" 
-    }, { 
-      fixture: "allMovies.json" 
+      url: "https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies"
+    }, {
+      fixture: "allMovies.json"
     })
 
     cy.visit('http://localhost:3000')
