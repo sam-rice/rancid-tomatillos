@@ -13,6 +13,12 @@ const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
   const userStar = userRating ? blueStar : blueOutlineStar
   const displayedUserRating = userRating ? userRating : <p className="rate-prompt">rate<br />movie</p>
 
+  const handleKeyDown = e => {
+    if (e.key === "Enter") {
+      e.target.click()
+    }
+  }
+
   return (
     <div className="control-bar">
       <Link
@@ -43,14 +49,16 @@ const ControlBar = ({ rateMovie, avgRating, userRating, id }) => {
               />}
               arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
               trigger={['click']}
-              
+              tabIndex={1}
             >
               <img
                 className="user-rating-star"
                 src={userStar}
+                data-cy={"open-rating-tooltip"}
+                onKeyDown={e => handleKeyDown(e)}
                 role="button"
                 aria-label="rate movie"
-                data-cy={"open-rating-tooltip"}
+                tabIndex={0}
               />
             </Tooltip>
           </div>

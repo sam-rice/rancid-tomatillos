@@ -9,7 +9,9 @@ import Header from "../Header/Header"
 function App() {
   const [movies, setMovies] = useState([])
   const [userRatings, setUserRatings] = useState([])
+  const [userBookmarks, setUserBookmarks] = useState([])
   const [query, setQuery] = useState("")
+  const [viewingWatchlist, setViewingWatchlist] = useState(false)
   const [err, setError] = useState("")
 
   useEffect(() => {
@@ -33,9 +35,12 @@ function App() {
     setQuery(input)
   }
 
-  const rateMovie = (e, id) => {
+  const toggleWatchlist = () => {
+    setViewingWatchlist(!viewingWatchlist)
+  }
+
+  const rateMovie = (rating, id) => {
     const matchedIndex = userRatings.findIndex(rating => rating.id == id)
-    const rating = e.target.innerText
     if (matchedIndex !== -1) {
       let newRatings = [...userRatings]
       newRatings[matchedIndex].rating = rating
@@ -45,13 +50,26 @@ function App() {
     }
   }
 
+  const toggleBookmarked = id => {
+    const matchedIndex = userBookmarks.findIndex(bookmark => bookmark.movieID == id)
+    if (matchedIndex !== -1) {
+      let newBookmarks = [...userBookmarks]
+      newBookmarks.splice(matchedIndex, 1)
+      setUserBookmarks(newBookmarks)
+    } else {
+      setUserBookmarks([...userBookmarks, { movieID: id, id: Date.now() }])
+    }
+  }
+
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 
   return (
     <>
       <Header
         updateQuery={updateQuery}
+        toggleWatchlist={toggleWatchlist}
         err={err}
+        viewingWatchlist={viewingWatchlist}
       />
       <main>
         {err && errorMessage}
@@ -59,11 +77,14 @@ function App() {
           exact path="/:id"
           render={({ match }) => {
             const targetRating = userRatings.find(rating => match.params.id == rating.id)
+            const isBookmarked = userBookmarks.some(bookmark => match.params.id == bookmark.movieID)
 
             return <DetailView
               id={match.params.id}
               rateMovie={rateMovie}
               userRating={targetRating && targetRating.rating}
+              toggleBookmarked={toggleBookmarked}
+              isBookmarked={isBookmarked}
             />
           }}
         />
@@ -73,6 +94,9 @@ function App() {
             movies={movies}
             query={query}
             userRatings={userRatings}
+            userBookmarks={userBookmarks}
+            toggleBookmarked={toggleBookmarked}
+            viewingWatchlist={viewingWatchlist}
           />}
         />
       </main>

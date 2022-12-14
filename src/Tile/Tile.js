@@ -1,20 +1,36 @@
-import React, { useState } from "react"
+import React, { useState, createRef } from "react"
 import { Link } from 'react-router-dom'
 import "./Tile.css"
 
 import star from "../assets/star.png"
 import blueStar from "../assets/star-blue.png"
+import bookmarkTrue from "../assets/bookmark-true.png"
+import bookmarkFalse from "../assets/bookmark-false.png"
 
-function Tile({ title, year, img, id, displayedRating, rated }) {
+function Tile({ title, year, img, id, displayedRating, rated, toggleBookmarked, isBookmarked }) {
   const [hovering, setHover] = useState(false)
+  const [tile] = useState(createRef())
 
-  const handleKeyDown = e => {
+  const handleTileKeyDown = e => {
     if (e.key === "Enter") {
-      e.target.firstChild.click()
+      e.target.children[1].click()
+    }
+  }
+
+  const handleBookmark = () => {
+    toggleBookmarked(id)
+    tile.current.focus()
+  }
+
+  const handleBookmarkKeyDown = e => {
+    if (e.key === "Enter") {
+      e.target.click()
     }
   }
 
   const userStar = rated ? blueStar : star
+
+  const tileBookmarkClassList = "bookmark bookmark-tile"
 
   const overlay =
     <div
@@ -35,11 +51,25 @@ function Tile({ title, year, img, id, displayedRating, rated }) {
     <li
       data-cy={id}
       tabIndex={2}
-      onKeyDown={e => handleKeyDown(e)}
+      onKeyDown={e => handleTileKeyDown(e)}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
     >
-      <Link to={`/${id}`}>
+      <img 
+        data-cy="bookmark-tile" 
+        className={tileBookmarkClassList} 
+        src={isBookmarked ? bookmarkTrue : bookmarkFalse} 
+        alt="bookmark icon"
+        onClick={handleBookmark}
+        onKeyDown={e => handleBookmarkKeyDown(e)}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        role="button"
+        aria-label="toggle bookmark"
+        aria-pressed={isBookmarked}
+        tabIndex={2}
+      /> 
+      <Link to={`/${id}`} ref={tile}>
         <div data-cy="img-container" className="img-container">
           <img
             className={imageClassList}

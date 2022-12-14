@@ -39,13 +39,14 @@ h1 {
 }
 
 .header-right {
+  /* position: relative; */
   padding-right: 25px;
 }
 
 .input-container {
   position: absolute;
-  top: 51px;
-  right: 30px;
+  top: 58px;
+  right: 137px;
   width: 240px;
   animation: fadeIn 2s;
 }
@@ -99,7 +100,29 @@ i {
   background-size: 10px 10px;
 }
 
-@media (max-width: 630px) {
+.watchlist-button {
+  position: absolute;
+  right: 37px;
+  top: 56px;
+  height: 40px;
+  width: 112px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition-duration: 500ms;
+}
+
+.watchlist-button-selected {
+  border-bottom: 2px solid var(--app-green);
+}
+
+.toggle-watchlist-button:hover {
+  color: rgb(216, 216, 216);
+}
+
+@media (max-width: 740px) {
 
   header {
     flex-direction: column;
@@ -148,7 +171,12 @@ i {
   }
 
   .icon-transition {
-    right: 180px;
+    right: 216px;
+  }
+
+  .watchlist-button {
+    position: inherit;
+    margin-left: 30px;
   }
 
 }

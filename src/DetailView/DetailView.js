@@ -3,8 +3,10 @@ import ReactPlayer from 'react-player/youtube'
 
 import ControlBar from "../ControlBar/ControlBar"
 import "./DetailView.css"
+import bookmarkTrue from "../assets/bookmark-true.png"
+import bookmarkFalse from "../assets/bookmark-false.png"
 
-function DetailView({ id, rateMovie, userRating }) {
+function DetailView({ id, rateMovie, userRating, toggleBookmarked, isBookmarked }) {
   const [movie, setMovie] = useState({})
   const [videoURL, setVideoURL] = useState("")
   const [error, setError] = useState("")
@@ -14,8 +16,6 @@ function DetailView({ id, rateMovie, userRating }) {
     getTrailerData()
     window.scrollTo(0, 0)
   }, [])
-
-
 
   const getMovieData = () => {
     fetch(`https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies/${id}`)
@@ -69,18 +69,24 @@ function DetailView({ id, rateMovie, userRating }) {
       .catch(err => setError(err))
   }
 
+  const handleBookmarkKeyDown = e => {
+    if (e.key === "Enter") {
+      e.target.click()
+    }
+  }
+
   const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} />
 
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 
   const budgetRow = <tr>
     <td>budget:</td>
-    <td data-cy="budget" className="td-key">{movie.budget}</td>
+    <td data-cy="budget" className="td-key">${movie.budget}</td>
   </tr>
 
   const revenueRow = <tr>
     <td>box office:</td>
-    <td data-cy="revenue" className="td-key">{movie.revenue}</td>
+    <td data-cy="revenue" className="td-key">${movie.revenue}</td>
   </tr>
 
   const backdropStyle = {
@@ -101,12 +107,26 @@ function DetailView({ id, rateMovie, userRating }) {
           style={backdropStyle}
         >
           <div className="details-upper">
-            <img
-              data-cy="poster"
-              className="poster"
-              src={movie.posterURL}
-              alt={`Poster for ${movie.title}`}
-            />
+            <div className="poster-container">
+              <img 
+                data-cy="bookmark" 
+                className="bookmark" 
+                src={isBookmarked ? bookmarkTrue : bookmarkFalse} 
+                alt="bookmark icon"
+                role="button"
+                aria-label="toggle bookmark"
+                aria-pressed={isBookmarked}
+                onClick={() => toggleBookmarked(id)}
+                onKeyDown={e => handleBookmarkKeyDown(e)}
+                tabIndex={0}
+              />
+              <img
+                data-cy="poster"
+                className="poster"
+                src={movie.posterURL}
+                alt={`Poster for ${movie.title}`}
+              />
+            </div>
             <div className="text-container">
               <h2 data-cy="title" className="title">{`${movie.title} (${movie.releaseYear})`}</h2>
               <p data-cy="genres" className="genres">{movie.genres}</p>

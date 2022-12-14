@@ -18,6 +18,22 @@
   margin-bottom: 40px;
 }
 
+.poster-container {
+  position: relative;
+}
+
+.bookmark {
+  position: absolute;
+  left: 10px;
+  width: 35px;
+  cursor: pointer;
+  transition-duration: 500ms;
+}
+
+.bookmark:hover {
+  filter: brightness(105%);
+}
+
 .poster {
   width: min(310px, 28vw);
   height: fit-content;
