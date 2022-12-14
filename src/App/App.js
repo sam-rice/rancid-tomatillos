@@ -11,6 +11,7 @@ function App() {
   const [userRatings, setUserRatings] = useState([])
   const [userBookmarks, setUserBookmarks] = useState([])
   const [query, setQuery] = useState("")
+  const [viewingWatchlist, setViewingWatchlist] = useState(false)
   const [err, setError] = useState("")
 
   useEffect(() => {
@@ -32,6 +33,11 @@ function App() {
 
   const updateQuery = input => {
     setQuery(input)
+  }
+
+  const toggleWatchlist = () => {
+    setViewingWatchlist(!viewingWatchlist)
+    console.log(viewingWatchlist)
   }
 
   const rateMovie = (rating, id) => {
@@ -62,6 +68,7 @@ function App() {
     <>
       <Header
         updateQuery={updateQuery}
+        toggleWatchlist={toggleWatchlist}
         err={err}
       />
       <main>
@@ -87,8 +94,9 @@ function App() {
             movies={movies}
             query={query}
             userRatings={userRatings}
-            toggleBookmarked={toggleBookmarked}
             userBookmarks={userBookmarks}
+            toggleBookmarked={toggleBookmarked}
+            viewingWatchlist={viewingWatchlist}
           />}
         />
       </main>

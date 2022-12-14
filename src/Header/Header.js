@@ -4,7 +4,7 @@ import { Link, Route } from "react-router-dom"
 import "./Header.css"
 import logo from "../assets/rt_logo.png"
 
-function Header({ updateQuery }) {
+function Header({ updateQuery, toggleWatchlist }) {
   const [query, setQuery] = useState("")
   const [searchHidden, setSearchHidden] = useState(true)
   const [searchInput] = useState(createRef())
@@ -70,7 +70,17 @@ function Header({ updateQuery }) {
           <h1>RANCID <br />TOMATILLOS</h1>
         </Link>
       </div>
-      <Route exact path="/" render={() => searchBar} />
+      <Route exact path="/" render={() => {
+        return (<>
+          {searchBar}
+          <button 
+            className="user-watchlist-button" 
+            onClick={toggleWatchlist}
+          >My Watchlist</button>
+        </>
+        )
+      }}
+      />
     </header>
   )
 }
