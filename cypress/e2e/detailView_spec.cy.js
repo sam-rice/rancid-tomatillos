@@ -3,21 +3,21 @@ describe("All Movies View - Complete Data", () => {
   beforeEach(() => {
     cy.intercept({
       method: "GET",
-      url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies" 
-    }, { 
-      fixture: "allMovies.json" 
+      url: "https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies"
+    }, {
+      fixture: "allMovies.json"
     })
     cy.intercept({
       method: "GET",
-      url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401" 
-    }, { 
-      fixture: "mulan.json" 
+      url: "https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies/337401"
+    }, {
+      fixture: "mulan.json"
     })
     cy.intercept({
       method: "GET",
-      url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401/videos" 
-    }, { 
-      fixture: "video.json" 
+      url: "https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies/337401/videos"
+    }, {
+      fixture: "video.json"
     })
 
     cy.visit('http://localhost:3000/')
@@ -91,21 +91,21 @@ describe("All Movies View - Incomplete Data", () => {
   beforeEach(() => {
     cy.intercept({
       method: "GET",
-      url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies" 
-    }, { 
-      fixture: "allMovies.json" 
+      url: "https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies"
+    }, {
+      fixture: "allMovies.json"
     })
     cy.intercept({
       method: "GET",
-      url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919" 
-    }, { 
-      fixture: "moneyPlane.json" 
+      url: "https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies/694919"
+    }, {
+      fixture: "moneyPlane.json"
     })
     cy.intercept({
       method: "GET",
-      url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos" 
-    }, { 
-      fixture: "video.json" 
+      url: "https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies/694919/videos"
+    }, {
+      fixture: "video.json"
     })
 
     cy.visit('http://localhost:3000/')
