@@ -17,8 +17,6 @@ function DetailView({ id, rateMovie, userRating, toggleBookmarked, isBookmarked 
     window.scrollTo(0, 0)
   }, [])
 
-
-
   const getMovieData = () => {
     fetch(`https://rancid-tomatillos-api.netlify.app/.netlify/functions/api/v1/movies/${id}`)
       .then(response => {
@@ -71,6 +69,12 @@ function DetailView({ id, rateMovie, userRating, toggleBookmarked, isBookmarked 
       .catch(err => setError(err))
   }
 
+  const handleBookmarkKeyDown = e => {
+    if (e.key === "Enter") {
+      e.target.click()
+    }
+  }
+
   const videoElement = <ReactPlayer url={`www.youtube.com/watch?v=${videoURL}`} />
 
   const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
@@ -108,7 +112,13 @@ function DetailView({ id, rateMovie, userRating, toggleBookmarked, isBookmarked 
                 data-cy="bookmark" 
                 className="bookmark" 
                 src={isBookmarked ? bookmarkTrue : bookmarkFalse} 
+                alt="bookmark icon"
+                role="button"
+                aria-label="toggle bookmark"
+                aria-pressed={isBookmarked}
                 onClick={() => toggleBookmarked(id)}
+                onKeyDown={e => handleBookmarkKeyDown(e)}
+                tabIndex={0}
               />
               <img
                 data-cy="poster"

@@ -59,12 +59,14 @@ function Tile({ title, year, img, id, displayedRating, rated, toggleBookmarked, 
         data-cy="bookmark-tile" 
         className={tileBookmarkClassList} 
         src={isBookmarked ? bookmarkTrue : bookmarkFalse} 
+        alt="bookmark icon"
         onClick={handleBookmark}
         onKeyDown={e => handleBookmarkKeyDown(e)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         role="button"
-        aria-label={`set bookmarked to ${!isBookmarked}`}
+        aria-label="toggle bookmark"
+        aria-pressed={isBookmarked}
         tabIndex={2}
       /> 
       <Link to={`/${id}`} ref={tile}>
