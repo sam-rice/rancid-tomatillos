@@ -35,7 +35,7 @@ function Header({ updateQuery, toggleWatchlist }) {
     `material-symbols-outlined icon-transition`
 
   const searchBar =
-    <div className="header-right">
+    <nav className="header-right">
       <div data-cy="input-container" className="input-container">
         <i
           className={iconClassList}
@@ -56,7 +56,11 @@ function Header({ updateQuery, toggleWatchlist }) {
           ref={searchInput}
         />
       </div>
-    </div>
+      <button 
+        className="toggle-watchlist-button" 
+        onClick={toggleWatchlist}
+      >My Watchlist</button>
+    </nav>
 
   return (
     <header>
@@ -70,16 +74,7 @@ function Header({ updateQuery, toggleWatchlist }) {
           <h1>RANCID <br />TOMATILLOS</h1>
         </Link>
       </div>
-      <Route exact path="/" render={() => {
-        return (<>
-          {searchBar}
-          <button 
-            className="user-watchlist-button" 
-            onClick={toggleWatchlist}
-          >My Watchlist</button>
-        </>
-        )
-      }}
+      <Route exact path="/" render={() => searchBar}
       />
     </header>
   )

@@ -36,13 +36,16 @@ function AllMoviesView({ movies, query, userRatings, toggleBookmarked, userBookm
   })
 
   const noMatches = !tileComponents.length && query
+  const noWatchedMovies = !tileComponents.length && viewingWatchlist && !query
   const noMatchesMessage = <p className="no-matches-message">No movies matching your search</p>
+  const noWatchedMessage = <p className="no-matches-message">No movies in your watchlist yet</p>
 
   return (
     <>
       {movies.length && <ul>
         {tileComponents}
         {noMatches && noMatchesMessage}
+        {noWatchedMovies && noWatchedMessage}
       </ul>}
     </>
   )

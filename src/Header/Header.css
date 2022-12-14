@@ -39,13 +39,14 @@ h1 {
 }
 
 .header-right {
+  /* position: relative; */
   padding-right: 25px;
 }
 
 .input-container {
   position: absolute;
   top: 51px;
-  right: 30px;
+  right: 137px;
   width: 240px;
   animation: fadeIn 2s;
 }
@@ -97,6 +98,14 @@ i {
   width: 10px;
   background-image: url(../assets/x-button.png);
   background-size: 10px 10px;
+}
+
+.toggle-watchlist-button {
+  position: absolute;
+  right: 37px;
+  top: 41px;
+  height: 56px;
+  width: 112px;
 }
 
 @media (max-width: 630px) {
