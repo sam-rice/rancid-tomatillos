@@ -37,7 +37,6 @@ function App() {
 
   const toggleWatchlist = () => {
     setViewingWatchlist(!viewingWatchlist)
-    console.log(viewingWatchlist)
   }
 
   const rateMovie = (rating, id) => {
@@ -70,6 +69,7 @@ function App() {
         updateQuery={updateQuery}
         toggleWatchlist={toggleWatchlist}
         err={err}
+        viewingWatchlist={viewingWatchlist}
       />
       <main>
         {err && errorMessage}

@@ -4,7 +4,7 @@ import { Link, Route } from "react-router-dom"
 import "./Header.css"
 import logo from "../assets/rt_logo.png"
 
-function Header({ updateQuery, toggleWatchlist }) {
+function Header({ updateQuery, toggleWatchlist, viewingWatchlist }) {
   const [query, setQuery] = useState("")
   const [searchHidden, setSearchHidden] = useState(true)
   const [searchInput] = useState(createRef())
@@ -34,6 +34,10 @@ function Header({ updateQuery, toggleWatchlist }) {
     `material-symbols-outlined` :
     `material-symbols-outlined icon-transition`
 
+  const watchlistButtonClassList = viewingWatchlist ?
+    "watchlist-button watchlist-button-selected" :
+    "watchlist-button"
+
   const searchBar =
     <nav className="header-right">
       <div data-cy="input-container" className="input-container">
@@ -57,8 +61,9 @@ function Header({ updateQuery, toggleWatchlist }) {
         />
       </div>
       <button 
-        className="toggle-watchlist-button" 
+        className={watchlistButtonClassList} 
         onClick={toggleWatchlist}
+        aria-pressed={viewingWatchlist}
       >My Watchlist</button>
     </nav>
 

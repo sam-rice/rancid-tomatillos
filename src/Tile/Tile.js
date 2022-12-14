@@ -11,15 +11,21 @@ function Tile({ title, year, img, id, displayedRating, rated, toggleBookmarked, 
   const [hovering, setHover] = useState(false)
   const [tile] = useState(createRef())
 
-  const handleKeyDown = e => {
+  const handleTileKeyDown = e => {
     if (e.key === "Enter") {
-      e.target.firstChild.click()
+      e.target.children[1].click()
     }
   }
 
   const handleBookmark = () => {
     toggleBookmarked(id)
     tile.current.focus()
+  }
+
+  const handleBookmarkKeyDown = e => {
+    if (e.key === "Enter") {
+      e.target.click()
+    }
   }
 
   const userStar = rated ? blueStar : star
@@ -45,7 +51,7 @@ function Tile({ title, year, img, id, displayedRating, rated, toggleBookmarked, 
     <li
       data-cy={id}
       tabIndex={2}
-      onKeyDown={e => handleKeyDown(e)}
+      onKeyDown={e => handleTileKeyDown(e)}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
     >
@@ -54,11 +60,12 @@ function Tile({ title, year, img, id, displayedRating, rated, toggleBookmarked, 
         className={tileBookmarkClassList} 
         src={isBookmarked ? bookmarkTrue : bookmarkFalse} 
         onClick={handleBookmark}
+        onKeyDown={e => handleBookmarkKeyDown(e)}
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         role="button"
         aria-label={`set bookmarked to ${!isBookmarked}`}
-        tabIndex={1}
+        tabIndex={2}
       /> 
       <Link to={`/${id}`} ref={tile}>
         <div data-cy="img-container" className="img-container">
