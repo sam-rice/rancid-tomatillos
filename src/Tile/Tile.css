@@ -1,9 +1,22 @@
 li {
+  position: relative;
   text-align: center;
   list-style: none;
   width: 195px;
   height: 315px;
   color: white;
+}
+
+.bookmark-tile {
+  position: absolute;
+  left: 10px;
+  width: 35px;
+  cursor: pointer;
+  z-index: 15;
+}
+
+.bookmark-tile:hover {
+  filter: brightness(105%);
 }
 
 .img-container {

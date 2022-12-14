@@ -87,6 +87,8 @@ function App() {
             movies={movies}
             query={query}
             userRatings={userRatings}
+            toggleBookmarked={toggleBookmarked}
+            userBookmarks={userBookmarks}
           />}
         />
       </main>

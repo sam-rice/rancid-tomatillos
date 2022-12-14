@@ -3,19 +3,18 @@ import "./AllMoviesView.css"
 
 import Tile from "../Tile/Tile"
 
-function AllMoviesView({ movies, query, userRatings }) {
+function AllMoviesView({ movies, query, userRatings, toggleBookmarked, userBookmarks }) {
 
   const displayedMovies = !query ?
     movies :
     movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
 
   const tileComponents = displayedMovies.map(movie => {
-
     const targetRating = userRatings.find(rating => rating.id == movie.id)
-
     const displayedRating = targetRating ?
       targetRating.rating :
       movie.average_rating.toFixed()
+    const isBookmarked = userBookmarks.some(bookmark => bookmark.movieID == movie.id)
 
     return <Tile
       title={movie.title}
@@ -25,6 +24,8 @@ function AllMoviesView({ movies, query, userRatings }) {
       key={movie.id}
       displayedRating={displayedRating}
       rated={(targetRating)}
+      toggleBookmarked={toggleBookmarked}
+      isBookmarked={isBookmarked}
     />
   })
 
