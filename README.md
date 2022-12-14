@@ -19,7 +19,7 @@
 
 ### Abstract
 
-Rancid Tomatillos is a multi-page React web application designed to emulate a movie review aggregator website (à la Rotten Tomatoes/IMDb). The application allows a user to browse and rate movies, add movies to their "watchlist", watch trailers, and view other miscellaneous film stats. All data is served up via a deployed [Node.js/Express RESTful API](https://github.com/sam-rice/rancid-tomatillos-api). The project also includes a Cypress acceptance test suite.
+Rancid Tomatillos is a multi-page React web application designed to emulate a movie review aggregator website (à la Rotten Tomatoes/IMDb). The application allows a user to browse and rate movies, add movies to their "watchlist", watch trailers, and view other miscellaneous film stats. All data is served up via a deployed [Node.js/Express server](https://github.com/sam-rice/rancid-tomatillos-api). The project also includes a Cypress acceptance test suite.
 
 ### Demo
 
