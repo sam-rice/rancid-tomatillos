@@ -9,6 +9,7 @@ import Header from "../Header/Header"
 function App() {
   const [movies, setMovies] = useState([])
   const [userRatings, setUserRatings] = useState([])
+  const [userBookmarks, setUserBookmarks] = useState([])
   const [query, setQuery] = useState("")
   const [err, setError] = useState("")
 
@@ -33,15 +34,25 @@ function App() {
     setQuery(input)
   }
 
-  const rateMovie = (e, id) => {
+  const rateMovie = (rating, id) => {
     const matchedIndex = userRatings.findIndex(rating => rating.id == id)
-    const rating = e.target.innerText
     if (matchedIndex !== -1) {
       let newRatings = [...userRatings]
       newRatings[matchedIndex].rating = rating
       setUserRatings(newRatings)
     } else {
       setUserRatings([...userRatings, { id: id, rating: rating }])
+    }
+  }
+
+  const toggleBookmarked = id => {
+    const matchedIndex = userBookmarks.findIndex(bookmark => bookmark.movieID == id)
+    if (matchedIndex !== -1) {
+      let newBookmarks = [...userBookmarks]
+      newBookmarks.splice(matchedIndex, 1)
+      setUserBookmarks(newBookmarks)
+    } else {
+      setUserBookmarks([...userBookmarks, { movieID: id, id: Date.now() }])
     }
   }
 
@@ -59,11 +70,14 @@ function App() {
           exact path="/:id"
           render={({ match }) => {
             const targetRating = userRatings.find(rating => match.params.id == rating.id)
+            const isBookmarked = userBookmarks.some(bookmark => match.params.id == bookmark.movieID)
 
             return <DetailView
               id={match.params.id}
               rateMovie={rateMovie}
               userRating={targetRating && targetRating.rating}
+              toggleBookmarked={toggleBookmarked}
+              isBookmarked={isBookmarked}
             />
           }}
         />

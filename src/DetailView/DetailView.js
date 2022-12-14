@@ -3,8 +3,10 @@ import ReactPlayer from 'react-player/youtube'
 
 import ControlBar from "../ControlBar/ControlBar"
 import "./DetailView.css"
+import bookmarkTrue from "../assets/bookmark-true.png"
+import bookmarkFalse from "../assets/bookmark-false.png"
 
-function DetailView({ id, rateMovie, userRating }) {
+function DetailView({ id, rateMovie, userRating, toggleBookmarked, isBookmarked }) {
   const [movie, setMovie] = useState({})
   const [videoURL, setVideoURL] = useState("")
   const [error, setError] = useState("")
@@ -101,12 +103,20 @@ function DetailView({ id, rateMovie, userRating }) {
           style={backdropStyle}
         >
           <div className="details-upper">
-            <img
-              data-cy="poster"
-              className="poster"
-              src={movie.posterURL}
-              alt={`Poster for ${movie.title}`}
-            />
+            <div className="poster-container">
+              <img 
+                data-cy="bookmark" 
+                className="bookmark" 
+                src={isBookmarked ? bookmarkTrue : bookmarkFalse} 
+                onClick={() => toggleBookmarked(id)}
+              />
+              <img
+                data-cy="poster"
+                className="poster"
+                src={movie.posterURL}
+                alt={`Poster for ${movie.title}`}
+              />
+            </div>
             <div className="text-container">
               <h2 data-cy="title" className="title">{`${movie.title} (${movie.releaseYear})`}</h2>
               <p data-cy="genres" className="genres">{movie.genres}</p>
