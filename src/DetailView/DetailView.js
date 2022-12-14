@@ -75,12 +75,12 @@ function DetailView({ id, rateMovie, userRating }) {
 
   const budgetRow = <tr>
     <td>budget:</td>
-    <td data-cy="budget" className="td-key">{movie.budget}</td>
+    <td data-cy="budget" className="td-key">${movie.budget}</td>
   </tr>
 
   const revenueRow = <tr>
     <td>box office:</td>
-    <td data-cy="revenue" className="td-key">{movie.revenue}</td>
+    <td data-cy="revenue" className="td-key">${movie.revenue}</td>
   </tr>
 
   const backdropStyle = {
