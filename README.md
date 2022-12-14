@@ -19,11 +19,11 @@
 
 ### Abstract
 
-Rancid Tomatillos is a multi-page React web application designed to emulate a movie review aggregator website (à la Rotten Tomatoes/IMDb). The application allows a user to browse and rate movies, watch trailers, and view other miscellaneous film stats. All data is served up via a deployed [Node.js/Express backend server](https://github.com/sam-rice/rancid-tomatillos-api). The project also includes a Cypress acceptance test suite.
+Rancid Tomatillos is a multi-page React web application designed to emulate a movie review aggregator website (à la Rotten Tomatoes/IMDb). The application allows a user to browse and rate movies, add movies to their "watchlist", watch trailers, and view other miscellaneous film stats. All data is served up via a deployed [Node.js/Express backend server](https://github.com/sam-rice/rancid-tomatillos-api). The project also includes a Cypress acceptance test suite.
 
 ### Demo
 
-![rt-demo-gif](https://user-images.githubusercontent.com/108169988/207406475-96fc58af-f1c1-4442-a5b6-febc0d4b6221.gif)
+![rt-demo-gif](https://user-images.githubusercontent.com/108169988/207665482-a6211b89-6cbe-4803-941f-3085ce364ea2.gif)
 
 ### Tech
 
@@ -39,9 +39,8 @@ Rancid Tomatillos is a multi-page React web application designed to emulate a mo
 
 ### Figma Wireframe
 
-![rt-homepage](https://user-images.githubusercontent.com/108169988/207408056-b912d18a-f7a3-466a-b995-adee81e3a53e.png)
-![rt-detail-view-wireframe](https://user-images.githubusercontent.com/108169988/207408075-0ff84898-7b0f-4941-a1f0-5cfc1f834c99.png)
-
+![rt-detail-view](https://user-images.githubusercontent.com/108169988/207661572-75c72eea-c589-4c70-b0e1-5846b9af1f19.png)
+![rt-homepage](https://user-images.githubusercontent.com/108169988/207661605-648efeaf-733b-4455-b818-5123eefca860.png)
 
 ### Additional Packages/Dependencies
 
