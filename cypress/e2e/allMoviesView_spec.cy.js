@@ -66,6 +66,24 @@ describe("All Movies View", () => {
     cy.contains("No movies matching your search")
   })
 
+  it("should allow bookmarking/un-bookmarking of individual movies", () => {
+    cy.get('[data-cy="694919"]').find('[data-cy="bookmark-tile"]').click()
+      .invoke("attr", "src").should("eql", "/static/media/bookmark-true.a3c72626dc6f7f69e770.png")
+    cy.get('[data-cy="694919"]').find('[data-cy="bookmark-tile"]').click()
+      .invoke("attr", "src").should("eql", "/static/media/bookmark-false.736e6f0f5d2de776d6d4.png")
+  })
+
+  it("should allow filtering by bookmarked movies", () => {
+    cy.get('[data-cy="694919"]').find('[data-cy="bookmark-tile"]').click()
+    cy.get('[data-cy="627290"]').find('[data-cy="bookmark-tile"]').click()
+    cy.get('[data-cy="watchlist-button"]').click()
+    cy.get("ul").find("li").should("have.length", 2)
+    cy.get('[data-cy="694919"]').should("be.visible")
+    cy.get('[data-cy="627290"]').should("be.visible")
+    cy.get('[data-cy="watchlist-button"]').click()
+    cy.get("ul").find("li").should("have.length", 10)
+  })
+
   it("should navigate to the \"movie detail view\" when a movie tile is clicked", () => {
     cy.get('[data-cy="694919"]').click()
     cy.url().should("equal", "http://localhost:3000/694919")

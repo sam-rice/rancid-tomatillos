@@ -64,6 +64,7 @@ function Header({ updateQuery, toggleWatchlist, viewingWatchlist }) {
         className={watchlistButtonClassList} 
         onClick={toggleWatchlist}
         aria-pressed={viewingWatchlist}
+        data-cy="watchlist-button"
       >My Watchlist</button>
     </nav>
 
