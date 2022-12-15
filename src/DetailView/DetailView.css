@@ -10,6 +10,7 @@
   height: -webkit-fill-available;
   color: white;
   padding: 1% 6%;
+  animation: fadeIn 1s;
 }
 
 .details-upper {

@@ -78,11 +78,31 @@ describe("All Movies View - Complete Data", () => {
     cy.get('[data-cy="user-rating"]').contains("7")
   })
 
-  it("should should display user reviews instead of average reviews on the home page, if the user has left one", () => {
+  it("should display a movie's user review on the homepage, if the movie has been previously reviewed", () => {
     cy.get('[data-cy="open-rating-tooltip"').click()
     cy.get('[data-cy="rating-7"]').click()
     cy.get('[data-cy="back-button"]').click()
     cy.get('[data-cy="337401"]').find('[data-cy="displayed-tile-rating"]').contains("7")
+  })
+
+  it("should allow a movie to be bookmarked from the \"detail view\"", () => {
+    cy.get('[data-cy="bookmark"]').click()
+    cy.get('[data-cy="bookmark"]').invoke("attr", "src").should("eql", "/static/media/bookmark-true.a3c72626dc6f7f69e770.png")
+  })
+
+  it("should allow a previously-bookmarked movie to be un-bookmarked from the \"detail view\"", () => {
+    cy.get('[data-cy="back-button"]').click()
+    cy.get('[data-cy="337401"]').find('[data-cy="bookmark-tile"]').click()
+    cy.get('[data-cy="337401"]').click()
+    cy.get('[data-cy="bookmark"]').click()
+      .invoke("attr", "src").should("eql", "/static/media/bookmark-false.736e6f0f5d2de776d6d4.png")
+  })
+
+  it("should show whether or not a movie has been previously bookmarked", () => {
+    cy.get('[data-cy="back-button"]').click()
+    cy.get('[data-cy="337401"]').find('[data-cy="bookmark-tile"]').click()
+    cy.get('[data-cy="337401"]').click()
+    cy.get('[data-cy="bookmark"]').invoke("attr", "src").should("eql", "/static/media/bookmark-true.a3c72626dc6f7f69e770.png")
   })
 })
 
