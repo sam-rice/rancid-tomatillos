@@ -48,6 +48,7 @@ function Header({ updateQuery, toggleWatchlist, viewingWatchlist }) {
           tabIndex={1}
           role="button"
           aria-label="click to search movies by title"
+          data-cy="search-icon-button"
         >search</i>
         <input
           className={inputClassList}

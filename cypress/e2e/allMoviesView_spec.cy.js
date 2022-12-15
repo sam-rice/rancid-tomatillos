@@ -36,24 +36,24 @@ describe("All Movies View", () => {
   })
 
   it("should not display the search bar immediately upon page load", () => {
-    cy.get('[data-cy="input-container"]').find("i").should("not.have.class", "icon-transition")
+    cy.get('[data-cy="search-icon-button"]').should("not.have.class", "icon-transition")
     cy.get('[data-cy="input-container"]').find("input").should("not.have.class", "input-transition")
   })
 
   it("should display the search bar when the search icon is clicked", () => {
-    cy.get('[data-cy="input-container"]').find("i").click()
+    cy.get('[data-cy="search-icon-button"]').click()
       .should("have.class", "icon-transition")
     cy.get('[data-cy="input-container"]').find("input").should("have.class", "input-transition")
   })
 
   it("should allow text input into the search bar", () => {
-    cy.get('[data-cy="input-container"]').find("i").click()
+    cy.get('[data-cy="search-icon-button"]').click()
     cy.get('[data-cy="input-container"]').find("input").type("c")
       .should("have.value", "c")
   })
 
   it("should filter movies by title", () => {
-    cy.get('[data-cy="input-container"]').find("i").click()
+    cy.get('[data-cy="search-icon-button"]').click()
     cy.get('[data-cy="input-container"]').find("input").type("lan")
     cy.get("ul").find("li").should("have.length", 2)
     cy.get('[data-cy="337401"]').should("be.visible")
@@ -61,7 +61,7 @@ describe("All Movies View", () => {
   })
 
   it("should display a message when no movies match the current query", () => {
-    cy.get('[data-cy="input-container"]').find("i").click()
+    cy.get('[data-cy="search-icon-button"]').click()
     cy.get('[data-cy="input-container"]').find("input").type("foobar")
     cy.contains("No movies matching your search")
   })
@@ -82,6 +82,16 @@ describe("All Movies View", () => {
     cy.get('[data-cy="627290"]').should("be.visible")
     cy.get('[data-cy="watchlist-button"]').click()
     cy.get("ul").find("li").should("have.length", 10)
+  })
+
+  it("should allow bookmarked movies to be searched by title", () => {
+    cy.get('[data-cy="694919"]').find('[data-cy="bookmark-tile"]').click()
+    cy.get('[data-cy="337401"]').find('[data-cy="bookmark-tile"]').click()
+    cy.get('[data-cy="watchlist-button"]').click()
+    cy.get('[data-cy="search-icon-button"]').click()
+    cy.get('[data-cy="input-container"]').find("input").type("mu")
+    cy.get('[data-cy="694919"]').should("not.exist")
+    cy.get('[data-cy="337401"]').should("be.visible")
   })
 
   it("should navigate to the \"movie detail view\" when a movie tile is clicked", () => {
