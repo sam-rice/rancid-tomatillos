@@ -57,3 +57,11 @@ Rancid Tomatillos is a multi-page React web application designed to emulate a mo
 - Implement a robust acceptance testing suite
 - Make network requests to retrieve data
 - Demonstrate DRY principles
+
+### Installation Instructions
+
+1. Fork this repository.
+2. Clone your forked repository to your machine.
+3. `cd` into the top level of the project repository from the command line and run `npm i`, then `npm start` to launch the application's server.
+4. Navigate to [http://localhost:3000](http://localhost:3000) in your browser to view the live page.
+5. To run the Cypress test suite, run `npm run cypress` from the command line while in the top level of the project directory.
